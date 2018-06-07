@@ -8,6 +8,6 @@
  *
  * @author Utente
  */
-public class Film {
+public class Film { aczz
     
 }
