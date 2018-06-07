@@ -4,3 +4,5 @@ private.xml
 build.properties
 *.properties
 *.properties
+*.xml
+*.properties
