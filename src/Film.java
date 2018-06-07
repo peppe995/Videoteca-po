@@ -44,12 +44,12 @@ public class Film implements Comparable{
      */
     
     public Film()
-    {
-        titolo = "TitoloD";
-        regista = new Regista();
-        codice = "CodiceD";
-        disponibilità = 1;
-    }
+        {
+            titolo = "TitoloD";
+            regista = new Regista();
+            codice = "CodiceD";
+            disponibilità = 1;
+        }
     
     /**
      * Tale costruttore permette tramite il passaggio di parametri specificati 
@@ -62,12 +62,12 @@ public class Film implements Comparable{
      */
     
     public Film(String TF, Regista RF, String CF, int DF)
-    {
-        regista = new Regista(RF.getNome(), regista.getCognome(), regista.getNazione());
-        titolo = TF;
-        codice = CF;
-        setDisponibilità(DF);
-    }
+        {
+            regista = new Regista(RF.getNome(), regista.getCognome(), regista.getNazione());
+            titolo = TF;
+            codice = CF;
+            setDisponibilità(DF);
+        }
     
     /**
      * Il suddetto costruttore inizializza un film con disponibilità unica attraverso 
@@ -78,12 +78,12 @@ public class Film implements Comparable{
      */
     
     public Film(String TF, Regista RF, String CF)
-    {
-        regista = new Regista(RF.getNome(), RF.getCognome(), RF.getNazione());
-        titolo = TF;
-        codice = CF;
-        disponibilità = 1;
-    }
+        {
+            regista = new Regista(RF.getNome(), RF.getCognome(), RF.getNazione());
+            titolo = TF;
+            codice = CF;
+            disponibilità = 1;
+        }
     
     /**
      * Restituisce il titolo del film
@@ -91,9 +91,9 @@ public class Film implements Comparable{
      */
                         /** Metodi Get */
     public String getTitolo()
-    {
-        return titolo;
-    }
+        {
+            return titolo;
+        }
     
     /**
      * Restituisce il totale delle copie disponibili di un dato film
@@ -101,9 +101,9 @@ public class Film implements Comparable{
      */
     
     public int getDisponibilità()
-    {
-        return disponibilità;
-    }
+        {
+            return disponibilità;
+        }
     
     /**
      * Restituisce una copia del regista del film
@@ -111,9 +111,9 @@ public class Film implements Comparable{
      */
     
     public Regista getRegista()
-    {
-        return new Regista(regista.getNome(),regista.getCognome(),regista.getNazione());
-    }
+        {
+            return new Regista(regista.getNome(),regista.getCognome(),regista.getNazione());
+        }
     
     /**
      * Restituisce il codice ISAN di tale film
@@ -121,9 +121,9 @@ public class Film implements Comparable{
      */
     
     public String getCodice()
-    {
-        return codice;
-    }
+        {
+            return codice;
+        }
                         /** Metodi Set */
     /**
      * Permette di stabilire il titolo di un film
@@ -131,9 +131,9 @@ public class Film implements Comparable{
      */
                         
     public void setTitolo(String TF)
-    {
-        titolo = TF;
-    }
+        {
+            titolo = TF;
+        }
     
     /**
      * Permette di impostare il totale delle copie disponibili di un film
@@ -141,16 +141,16 @@ public class Film implements Comparable{
      */
     
     public void setDisponibilità(int DF)
-    {
+        {
         if(DF>=0)
-	{
+            {
 		disponibilità = DF;
-	}
+            }
 	else
-	{
+            {
 		disponibilità = 0;
-	}
-    }
+            }
+        }
     
     /**
      * Permette di selezionare il regista del film
@@ -158,9 +158,9 @@ public class Film implements Comparable{
      */
     
     public void setRegista(Regista RF)
-    {
-        regista = new Regista(RF.getNome(), RF.getCognome(), RF.getNazione());
-    }
+        {
+            regista = new Regista(RF.getNome(), RF.getCognome(), RF.getNazione());
+        }
     
     /**
      * Consente di impostare il codice ISAN di un film
@@ -168,9 +168,9 @@ public class Film implements Comparable{
      */
     
     public void setCodice(String CF)
-    {
-        codice = CF;
-    }
+        {
+            codice = CF;
+        }
     
     /**
      * Restituisce una stringa contenente tutte le informazioni sul film
@@ -178,30 +178,30 @@ public class Film implements Comparable{
      */
     
     public String toString()
-    {
-        return titolo+" "+regista+" "+codice+" ";
-    }
+        {
+            return titolo+" "+regista+" "+codice+" ";
+        }
     
     /**
      * In caso di noleggio di un film si riduce la disponibilità di un'unità , se questa è maggiore di 0;
      */
     
     public void Noleggio()
-    {
-	if(disponibilità>0)
-	{
-            disponibilità--;
-	}
-    }
+        {
+            if(disponibilità>0)
+                {
+                    disponibilità--;
+                }
+        }
     
     /**
      * In caso di restituzione di un film ne aumenta la disponibilità di un'unità
      */
     
     public void Restituzione()
-    {
-        disponibilità++;
-    }
+        {
+            disponibilità++;
+        }
     
     /**
      * Effettua un confronto per verificare l'uguaglianza tra due film dati comparando titolo e regista
@@ -210,17 +210,17 @@ public class Film implements Comparable{
      */
     
     public boolean equals(Film f)
-    {
+        {
         
             if(titolo.equalsIgnoreCase(f.getTitolo()) && regista.equals(f.getRegista()))
-	    {
+                {
 		    return true;
-	    }
+                }
             else
-	    {
+                {
 		    return false;
-	    }
-    }
+                }
+        }
     
     /**
      * Effettua un confronto lessico-grafico in base al titolo dei film confrontati
@@ -230,9 +230,9 @@ public class Film implements Comparable{
      */
     
     public int compareTo(Object o)
-    {
-        Film f=(Film)o;
-        return titolo.compareToIgnoreCase(f.getTitolo());
-    }
+        {
+            Film f=(Film)o;
+            return titolo.compareToIgnoreCase(f.getTitolo());
+        }
     
 }
