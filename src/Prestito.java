@@ -57,7 +57,7 @@ public class Prestito implements Comparable{
     
     public Prestito(Film film1, Cliente cliente1, Data data1)
      {
-        film = new Film(film1.getTitolo(),film1.getAutore(),film1.getCodice());
+        film = new Film(film1.getTitolo(),film1.getRegista(),film1.getCodice());
         cliente = new Cliente(cliente1.getNome(),cliente1.getCognome(),cliente1.getCodiceFisc());
         data = new Data(data1.getGiorno(),data1.getMese(),data1.getAnno());
         scadenza = data1.RicavaGiorno(30);        
@@ -70,7 +70,7 @@ public class Prestito implements Comparable{
     
     public Film getFilm()
      {
-        return new Film(film.getTitolo(),film.getAutore(),film.getCodice());
+        return new Film(film.getTitolo(),film.getRegista(),film.getCodice());
      }
     
     /**
@@ -111,7 +111,7 @@ public class Prestito implements Comparable{
     
     public void setFilm(Film film1)
      {
-        film = new Film(film1.getTitolo(),film1.getAutore(),film1.getCodice());
+        film = new Film(film1.getTitolo(),film1.getRegista(),film1.getCodice());
      }
     
     /**
