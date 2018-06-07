@@ -176,11 +176,11 @@ public class Data implements Comparable{
 	
 	
 	private int ControlloGiorniMese()
-	{
+            {
 		int GiorniTot = MaxGiorni;
                 
 		switch(this.mese)
-		{
+                    {
 			case 4 : 
 			case 6 :
 			case 9 :
@@ -188,18 +188,18 @@ public class Data implements Comparable{
 				
 			case 2 :
 			if(bis)
-			{
-				GiorniTot=29;
-			}
+                            {
+				GiorniTot = 29;
+                            }
 			else
-			{
-				GiorniTot=28;
-			}
+                            {
+				GiorniTot = 28;
+                            }
 			break;
-		}
+                    }
 		
 		return GiorniTot;
-	}
+            }
 	
 	/**
 	 * Inserito un numero intero di giorni calcola la data esatta dopo i giorni immessi
@@ -207,41 +207,41 @@ public class Data implements Comparable{
 	 * @return la data esatta che ci sarà dopo quel quantitativo di giorni
 	 */
 	
-	public Data RiordGior(int g)
-	{
-		int GiorniTot=ControlloGiorniMese();
-		int giorni=giorno;
-		int mesi=mese;
-		int anni=anno;
-		boolean bisestile=bis;
-		giorno=giorno+g;
-		while(giorno>GiorniTot)
+	public Data RicavaGiorno(int g)
+            {
+		int GiorniTot = ControlloGiorniMese();
+		int giorni = giorno;
+		int mesi = mese;
+		int anni = anno;
+		boolean bisestile = bis;
+		giorno = giorno+g;
+		while(giorno > GiorniTot)
 		{
-			giorno=giorno-GiorniTot;
+			giorno = giorno-GiorniTot;
                         mese++;
-			if(mese>MaxMesi)
-			{
-				mese=mese-MaxMesi;
+			if( mese > MaxMesi)
+                            {
+				mese = mese-MaxMesi;
 				anno++;
-				if(anno%Special[0]==0&&(anno%Special[1]!=0||anno%Special[2]==0))
-				{
-					bis=true;
-				}
+				if(anno%Special[0]==0 && (anno%Special[1]!=0||anno%Special[2]==0))
+                                    {
+					bis = true;
+                                    }
 				else
-				{
-					bis=false;
-				}
-			}
-			GiorniTot=ControlloGiorniMese();
+                                    {
+					bis = false;
+                                    }
+                            }
+			GiorniTot = ControlloGiorniMese();
 		}
 		
-		Data data=new Data(giorno,mese,anno);
-                giorno=giorni;
-                mese=mesi;
-                anno=anni;
-                bis=bisestile;
+		Data data = new Data(giorno,mese,anno);
+                giorno = giorni;
+                mese = mesi;
+                anno = anni;
+                bis = bisestile;
                 return data;  
-	}
+            }
 	
 	/**
 	 * Converte una composizione di attributi giorno, mese, anno in una 
@@ -250,10 +250,10 @@ public class Data implements Comparable{
 	 */
 	
 	public String toString()
-        {
-                String s=giorno+"/"+mese+"/"+anno;    
+            {
+                String s = giorno+"/"+mese+"/"+anno;    
                 return s;
-        }
+            }
 	
 	/**
 	 * Applica un confronto tra date e controlla se sono uguali confrontando giorno, mese e anno
@@ -262,16 +262,16 @@ public class Data implements Comparable{
 	 */
 	
 	public boolean equals(Data data)
-        {
+            {
                 if(data.getGiorno()==giorno && data.getMese()==mese && data.getAnno()==anno)
-		{
+                    {
                         return true;
-		}
+                    }
                 else 
-		{
+                    {
 			return false;
-		}
-        }
+                    }
+            }
 	
 	/**
 	 * Implementando questo metodo viene reso possibile il riordinamento 
@@ -282,51 +282,51 @@ public class Data implements Comparable{
 	 */
 	
         public int compareTo(Object other)
-        {
-            Data data2=(Data)other;
-            if(anno>data2.getAnno() || anno<data2.getAnno())
             {
-                if(anno>data2.getAnno())
-		{
-                    return 1;
-		}
-                else 
-		{
-			return -1;
-		}
-            }
-            else
-            {
-                if(mese>data2.getMese() || mese<data2.getMese())
-                {
-                    if(mese>data2.getMese())
-		    {
-			    return 1;
-		    }
-                    else 
-		    {
-			    return -1;
-		    }
-                }
-                else
-                {
-                    if(giorno>data2.getGiorno() || giorno<data2.getGiorno())
-                    {
-                        if(giorno>data2.getGiorno())
-			{
-				return 1;
-			}
-                        else 
-			{
-				return -1;
-			}
-                    }
+                Data data2 = (Data)other;
+                    if(anno>data2.getAnno() || anno<data2.getAnno())
+                        {
+                            if(anno > data2.getAnno())
+                                {
+                                    return 1;
+                                }
+                            else 
+                                {
+                                    return -1;
+                                }
+                        }
                     else
-		    {
-			    return 0;
-		    }
-                }
-            }
-        }               
+                        {
+                            if(mese>data2.getMese() || mese<data2.getMese())
+                                {
+                                    if(mese > data2.getMese())
+                                        {
+                                            return 1;
+                                        }
+                                    else 
+                                        {
+                                            return -1;
+                                        }
+                                }
+                            else
+                                {
+                                    if(giorno>data2.getGiorno() || giorno<data2.getGiorno())
+                                        {
+                                            if(giorno>data2.getGiorno())
+                                                {
+                                                    return 1;
+                                                }
+                                            else 
+                                                {
+                                                    return -1;
+                                                }
+                                        }
+                                    else
+                                        {
+                                                return 0;
+                                        }
+                                }
+                        }
+            }               
             
 }
