@@ -1,8 +1,4 @@
 
 .DS_Store
-private.xml
-build.properties
-*.properties
-*.properties
 *.xml
 *.properties
