@@ -1,10 +1,9 @@
 import java.lang.Comparable;
 
 /**
- * La classe Film gestisce oggetti di tipo film attraverso il titolo, il codice ISBN,
- * il regista e la disponibilità, i quali rappresentano gli attributi della classe stessa,
- * all'interno di una "videoteca"
- * 
+ * La classe Film gestisce oggetti di tipo film attraverso il titolo, il codice identificativo ISAN,
+ * il regista e la disponibilità, i quali a loro volta rappresentano gli attributi della classe stessa,
+ * all'interno di una "videoteca". 
  * Implementa, inoltre, l'interfaccia Comparable rendendo possibile un riordinamento
  * dei film in base agli attributi sopra elencati.
  * 
@@ -21,7 +20,7 @@ public class Film implements Comparable{
     private String titolo;
     
     /**
-     * L'regista del libro
+     * Il regista del film
      */
     
     private Regista regista;
@@ -33,15 +32,15 @@ public class Film implements Comparable{
     private String codice;
     
     /**
-    * La disponibilità del film, ossia il numero di copie disponibili film
+    * La disponibilità del film, ossia il numero di copie disponibili di film
     */
     
     private int disponibilità;
                         
                         /** Costruttori */
     /**
-     * Il costruttore di default: descrive un oggetto di tipo film con attributi quali titolo, codice ISBN 
-     * e a un regista generici e, con disponibilità unitaria.
+     * Il costruttore di default: descrive un oggetto di tipo film con attributi quali titolo, codice ISAN 
+     * e a un regista generici con disponibilità unitaria.
      */
     
     public Film()
@@ -53,13 +52,13 @@ public class Film implements Comparable{
     }
     
     /**
-     * Tale costruttore invece permette tramite il passaggio di parametri specificati 
+     * Tale costruttore permette tramite il passaggio di parametri specificati 
      * dall'utente di inizializzare l'oggetto film ad uno stato specifico, permettendo 
-     * di scegliere anche l'ammontare della disponibilità (se questa è maggiore o uguale a 0)
+     * di scegliere anche il totale di numero di copie disponibili (se la disponibilità è maggiore o uguale a 0)
      * @param TF descrive il titolo del film
      * @param RF descrive il regista del film
      * @param DF descrive la disponibilità di tale film
-     * @param CF descrive il codice ISBN del film
+     * @param CF descrive il codice ISAN del film
      */
     
     public Film(String TF, Regista RF, String CF, int DF)
@@ -71,11 +70,11 @@ public class Film implements Comparable{
     }
     
     /**
-     * Questo costruttore inizializza un libro con disponibilità unica attraverso 
-     * il passaggio dei parametri titolo, regista e codice ISBN
-     * @param T descrive il titolo del libro
-     * @param RF descrive l'regista del libro
-     * @param CL descrive il codice ISBN del libro
+     * Il suddetto costruttore inizializza un film con disponibilità unica attraverso 
+     * il passaggio dei parametri titolo, regista e codice ISAN
+     * @param TF descrive il titolo del film
+     * @param RF descrive l'regista del film
+     * @param CL descrive il codice ISAN del film
      */
     
     public Film(String TF, Regista RF, String CF)
@@ -117,65 +116,65 @@ public class Film implements Comparable{
     }
     
     /**
-     * Restituisce il codice ISBN di tale libro
-     * @return Il genere di tale libro 
+     * Restituisce il codice ISAN di tale film
+     * @return Il genere di tale film 
      */
     
     public String getCodice()
     {
         return codice;
     }
-    
+                        /** Metodi Set */
     /**
-     * Permette di impostare il titolo di un libro
-     * @param TL rappresenta il titolo del libro
+     * Permette di stabilire il titolo di un film
+     * @param TF rappresenta il titolo del film selezionato
      */
-    
-    public void setTitolo(String TL)
+                        
+    public void setTitolo(String TF)
     {
-        titolo=TL;
+        titolo = TF;
     }
     
     /**
-     * Permette di impostare l'ammontare delle copie disponibili di un libro
-     * @param DL rappresenta l'ammontare delle copie disponibili di un dato libro
+     * Permette di impostare il totale delle copie disponibili di un film
+     * @param DF rappresenta il totale delle copie disponibili di un dato film
      */
     
-    public void setDisponibilità(int DL)
+    public void setDisponibilità(int DF)
     {
-        if(DL>=0)
+        if(DF>=0)
 	{
-		disponibilità=DL;
+		disponibilità = DF;
 	}
 	else
 	{
-		disponibilità=0;
+		disponibilità = 0;
 	}
     }
     
     /**
-     * Permette di impostare l'regista del libro
-     * @param RF rappresenta l'regista di un libro
+     * Permette di selezionare il regista del film
+     * @param RF rappresenta il regista di un determinato film
      */
     
     public void setRegista(Regista RF)
     {
-        regista=new Regista(RF.getNome(), RF.getCognome(), RF.getNazione());
+        regista = new Regista(RF.getNome(), RF.getCognome(), RF.getNazione());
     }
     
     /**
-     * Permette di impostare il codice ISBN di un libro
-     * @param CL rappresenta il codice ISBN di un dato libro
+     * Consente di impostare il codice ISAN di un film
+     * @param CF rappresenta il codice ISAN di un determinato film
      */
     
-    public void setCodice(String CL)
+    public void setCodice(String CF)
     {
-        codice=CL;
+        codice = CF;
     }
     
     /**
-     * Restituisce una stringa contenente tutte le informazioni sul libro
-     * @return Restituisce una composizione di titolo, regista ed codice ISBN in una stringa ordinata
+     * Restituisce una stringa contenente tutte le informazioni sul film
+     * @return La stringa ordinata è una composizione di titolo, regista ed codice ISAN 
      */
     
     public String toString()
@@ -184,7 +183,7 @@ public class Film implements Comparable{
     }
     
     /**
-     * In caso di noleggio di un libro ne riduce la disponibilità di un'unità , se questa è maggiore di 0;
+     * In caso di noleggio di un film si riduce la disponibilità di un'unità , se questa è maggiore di 0;
      */
     
     public void Noleggio()
@@ -196,7 +195,7 @@ public class Film implements Comparable{
     }
     
     /**
-     * In caso di restituzione di un libro ne aumenta la disponibilità di un'unità
+     * In caso di restituzione di un film ne aumenta la disponibilità di un'unità
      */
     
     public void Restituzione()
@@ -205,15 +204,15 @@ public class Film implements Comparable{
     }
     
     /**
-     * Effettua un confronto per verificare l'uguaglianza tra due libri dati confrontando titolo e regista
-     * @param l rappresenta il secondo libro che verrà aggiunto al confronto
-     * @return una variabile booleana che rappresenta l'effettiva uguaglianza o non
+     * Effettua un confronto per verificare l'uguaglianza tra due film dati comparando titolo e regista
+     * @param f rappresenta il secondo film che verrà aggiunto al confronto
+     * @return una variabile booleana che rappresenta l'uguaglianza o meno dei due film
      */
     
-    public boolean equals(Libro l)
+    public boolean equals(Film f)
     {
         
-            if(titolo.equalsIgnoreCase(l.getTitolo()) && regista.equals(l.getRegista()))
+            if(titolo.equalsIgnoreCase(f.getTitolo()) && regista.equals(f.getRegista()))
 	    {
 		    return true;
 	    }
@@ -224,17 +223,16 @@ public class Film implements Comparable{
     }
     
     /**
-     * Permette di effettuare un confronto lessico-grafico in base al titolo dei libri confrontati
-     * e rende possibile stabilire se un libro va collocato prima o dopo 
-     * in un riordinamento
+     * Effettua un confronto lessico-grafico in base al titolo dei film confrontati
+     * e rende possibile stabilire se un film va collocato prima o dopo in un riordinamento
      * @param o rappresenta il secondo elemento del paragone
      * @return un intero positivo, negativo, oppure zero in base al risultato
      */
     
     public int compareTo(Object o)
     {
-        Libro l=(Libro)o;
-        return titolo.compareToIgnoreCase(l.getTitolo());
+        Film f=(Film)o;
+        return titolo.compareToIgnoreCase(f.getTitolo());
     }
     
 }

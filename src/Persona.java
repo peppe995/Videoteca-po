@@ -108,7 +108,7 @@ public class Persona implements Comparable{
         }
     
     /**
-     * Confronta la persona con un'altra (passata come parametro) confrontando l'ordine alfabetico del cognome
+     * Confronta la persona con un'altra (passata come parametro) comparando l'ordine alfabetico del cognome
      * @param other la seconda persona con cui confrontare
      * @return l'intero corrispondente al risultato, -1 se minore,0 se uguale,1 se maggiore
      */
