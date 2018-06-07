@@ -9,6 +9,5 @@
  * @author Utente
  */
 public class Film { 
-    alessaaaaaaas
-    ciaoaoaoaaoaoaoaoao
+    
 }
