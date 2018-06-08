@@ -18,7 +18,7 @@ public class Prestito implements Comparable{
     private Film film;
     
     /**
-     * Le credenziali del cliente
+     * Credenziali del cliente
      */
     private Cliente cliente;
     
@@ -32,7 +32,7 @@ public class Prestito implements Comparable{
      */
     private Data scadenza;
     
-    
+                        /** Costruttori */
     /**
      * Il costruttore di default inizializza un noleggio chiamando i costruttori 
      * di default delle classi film, cliente e data, per poi impostare la scadenza di 

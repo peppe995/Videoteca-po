@@ -1,3 +1,9 @@
+import java.io.File; // Pacchetto che descrive file e cartelle presenti nel disco e usato per la costruzione di un file di testo
+import java.io.FileNotFoundException; // Eccezione riguardante il file nel caso non sia trovato
+import java.util.NoSuchElementException; // Eccezione che si verifica quando la fine del file viene raggiunta prima che sia stato aggiunto almeno un carattere alla parola che si sta costruendo
+import java.io.IOException; // Eccezione a controllo obbligatorio (errore non gestibile dal programmatore)
+import java.io.PrintWriter; // Pacchetto per la scrittura dati su un file
+import java.util.Scanner; // Pacchetto per la lettura di file di testo
 /**
  * Gestisce la scrittura e la lettura su/da file
  * degli elementi di un oggetto della classe Libreria
@@ -69,7 +75,7 @@ public class FileManager {
          {
             SalvaFilm.println(FilmLista.getDisponibilità());   // Nella fase di scrittura della lista che
             SalvaFilm.println(FilmLista.getTitolo());          // caratterizza il film, vengono trasferiti i seguenti
-            SalvaFilm.println(FimLista.getCodice());          // dati: Disponibilità del film, titolo, codice ISBN, Nome, Cognome
+            SalvaFilm.println(FilmLista.getCodice());          // dati: Disponibilità del film, titolo, codice ISBN, Nome, Cognome
             SalvaFilm.println(FilmLista.getRegista().getNome());  // e nazione dell'autore
             SalvaFilm.println(FilmLista.getRegista().getCognome());
             SalvaFilm.println(FilmLista.getRegista().getNazione());
@@ -77,7 +83,7 @@ public class FileManager {
         SalvaFilm.close();  // Al termine dell'elaborazione del File, chiudiamo l'oggetto Printwriter
 	
         PrintWriter SalvaPrest=new PrintWriter(newPrestitoLis);
-        for(Prestito PrestitoLista:lib.getPrestiti())  // Eseguiamo la stessa operazione per la lista dei prestiti
+        for(Prestito PrestitoLista:vid.getPrestiti())  // Eseguiamo la stessa operazione per la lista dei prestiti
          {
             SalvaPrest.println(PrestitoLista.getFilm().getTitolo());
             SalvaPrest.print(PrestitoLista.getData().getGiorno()+" ");
