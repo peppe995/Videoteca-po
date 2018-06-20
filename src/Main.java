@@ -23,14 +23,14 @@ public class Main {
 
                 boolean safe = true;
 		boolean fatto = false;
-		int opt=-1;
+		int opt = -1;
 		JTextField InsTesto = new JTextField();
 		Object[] scelta={"Cosa si desidera fare (digitare il numero corrispondente)?"
                         + "\n\n1) Aggiungere un film al database"
                         + "\n\n2) Mostrare i film disponibili"
 			+ "\n\n3) Mostrare i noleggi scaduti\n\n4) Cercare un film,cliente o noleggio"
 			+ "\n\n5) Uscire","\n",InsTesto};
-		File film = new File("libri.txt");
+		File film = new File("film.txt");
 		File prestiti = new File("prestiti.txt");
                 File clienti = new File("clienti.txt");
 		Videoteca vid = new Videoteca();
@@ -59,15 +59,15 @@ public class Main {
 						{
 							case 1: safe = false; AggiungiNuovoFilm(vid);                      break;
 							case 2: safe = false; MostraFilm(vid);                             break;
-							case 3: safe = false; ControlloScad(vid);                           break;
-							case 4: safe = false; Ricerca(vid);                                 break;
+							case 3: safe = false; ControlloScad(vid);                          break;
+							case 4: safe = false; Ricerca(vid);                                break;
                                                         case 5: fatto = Uscita(safe,film,prestiti,clienti,manager,fatto);  break;
 						}
 					}
 				}
 				else
 				{
-                                    fatto=Uscita(safe,film,prestiti,clienti,manager,fatto);
+                                    fatto = Uscita(safe,film,prestiti,clienti,manager,fatto);
 				}
 			}
 			catch(NumberFormatException e)
@@ -86,7 +86,7 @@ public class Main {
      * @throws IOException Eccezione a controllo obbligatorio (errore non gestibile dal programmatore)
      */
         
-       public static void AggiungiNuovoFilm(Film film) throws NumberFormatException, IOException
+       public static void AggiungiNuovoFilm(Videoteca vid) throws NumberFormatException, IOException
 	{
 		int opzione;
 		JTextField titolo = new JTextField();
@@ -125,8 +125,8 @@ public class Main {
 						film1.setDisponibilità(Integer.parseInt(Copie.getText()));
 						RF.setNome(NomeRegista.getText());
 						RF.setCognome(CognomeRegista.getText());
-						AL.setNazione(NazioneRegista.getText());
-						film1.setRegista(AL);
+						RF.setNazione(NazioneRegista.getText());
+						film1.setRegista(RF);
 						vid.AggiungiFilm(film1);
 						JOptionPane.showMessageDialog(null,"Il film è stato"
 						+ " aggiunto con successo!");
@@ -655,7 +655,7 @@ public class Main {
                                                         PrestitoLista.getData()+" Data scadenza: "+
                                                         PrestitoLista.getScadenza()+"\n";
 							s1 = null;
-							i++;
+							++i;
 						}
 						JOptionPane.showMessageDialog(null, s);
 					}
@@ -683,7 +683,7 @@ public class Main {
  * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
  */
         
-	public static void RicercaFilmTitolo(Videoteca lib) throws NumberFormatException
+	public static void RicercaFilmTitolo(Videoteca vid) throws NumberFormatException
 	{
 		JTextField TF = new JTextField();
 		Object[] message = {"Inserire il titolo del film:", TF};
