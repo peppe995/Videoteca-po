@@ -1,3 +1,4 @@
+
 import java.io.File; // Pacchetto che dà possibilità di creare il file
 import java.io.FileNotFoundException; // Eccezione riguardante il file nel caso non sia trovato
 import java.io.IOException; // Eccezione a controllo obbligatorio (errore non gestibile dal programmatore)
@@ -20,7 +21,7 @@ public class Main {
 
    public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
        
-
+            
                 boolean safe = true;
 		boolean fatto = false;
 		int opt = -1;
