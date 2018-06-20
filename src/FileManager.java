@@ -70,7 +70,7 @@ public class FileManager {
 	FilmLis.createNewFile();
 	PrestitoLis.createNewFile();
         ClienteLis.createNewFile();
-        PrintWriter SalvaFilm=new PrintWriter(newFilmLis); // Uso il Printwriter per scrivere dati (lista film)
+        PrintWriter SalvaFilm = new PrintWriter(newFilmLis); // Uso il Printwriter per scrivere dati (lista film)
         for(Film FilmLista:vid.getFilm())                 // in un file
          {
             SalvaFilm.println(FilmLista.getDisponibilità());   // Nella fase di scrittura della lista che
@@ -82,7 +82,7 @@ public class FileManager {
          }
         SalvaFilm.close();  // Al termine dell'elaborazione del File, chiudiamo l'oggetto Printwriter
 	
-        PrintWriter SalvaPrest=new PrintWriter(newPrestitoLis);
+        PrintWriter SalvaPrest = new PrintWriter(newPrestitoLis);
         for(Prestito PrestitoLista:vid.getPrestiti())  // Eseguiamo la stessa operazione per la lista dei prestiti
          {
             SalvaPrest.println(PrestitoLista.getFilm().getTitolo());
