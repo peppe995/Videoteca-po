@@ -6,7 +6,7 @@ import java.io.PrintWriter; // Pacchetto per la scrittura dati su un file
 import java.util.Scanner; // Pacchetto per la lettura di file di testo
 /**
  * Gestisce la scrittura e la lettura su/da file
- * degli elementi di un oggetto della classe Libreria
+ * degli elementi di un oggetto della classe Videoteca
  * 
  * @author Carlone Giuseppe Pio 
  * @author Mambella Alessandra
@@ -27,7 +27,7 @@ public class FileManager {
      */    
     public FileManager(Videoteca videoteca)
      {
-        vid=videoteca;
+        vid = videoteca;
      }
     
     /** 
@@ -46,7 +46,7 @@ public class FileManager {
      */
     public void setVid(Videoteca videoteca)
      {
-        vid=videoteca;
+        vid = videoteca;
      }
     
     /**
@@ -64,9 +64,9 @@ public class FileManager {
 	FilmLis.delete();
 	PrestitoLis.delete();
         ClienteLis.delete();
-	File newFilmLis=new File(FilmLis.getName());
-        File newPrestitoLis=new File(PrestitoLis.getName());  
-        File newClienteLis=new File(ClienteLis.getName());
+	File newFilmLis = new File(FilmLis.getName());
+        File newPrestitoLis = new File(PrestitoLis.getName());  
+        File newClienteLis = new File(ClienteLis.getName());
 	FilmLis.createNewFile();
 	PrestitoLis.createNewFile();
         ClienteLis.createNewFile();
@@ -75,8 +75,8 @@ public class FileManager {
          {
             SalvaFilm.println(FilmLista.getDisponibilità());   // Nella fase di scrittura della lista che
             SalvaFilm.println(FilmLista.getTitolo());          // caratterizza il film, vengono trasferiti i seguenti
-            SalvaFilm.println(FilmLista.getCodice());          // dati: Disponibilità del film, titolo, codice ISBN, Nome, Cognome
-            SalvaFilm.println(FilmLista.getRegista().getNome());  // e nazione dell'autore
+            SalvaFilm.println(FilmLista.getCodice());          // dati: Disponibilità del film, titolo, codice ISAN, Nome, Cognome
+            SalvaFilm.println(FilmLista.getRegista().getNome());  // e nazione del regista
             SalvaFilm.println(FilmLista.getRegista().getCognome());
             SalvaFilm.println(FilmLista.getRegista().getNazione());
          }
@@ -127,7 +127,7 @@ public class FileManager {
          }
         else
          {
-            if(!PrestitoLis.exists())  // Se il file dei libri esiste ma non c'è quello dei prestiti
+            if(!PrestitoLis.exists())  // Se il file dei film esiste ma non c'è quello dei prestiti
              {
                  PrestitoLis.createNewFile();  // Viene creato soltanto quello dei prestiti
              }
@@ -136,37 +136,37 @@ public class FileManager {
                 ClienteLis.createNewFile();  // Viene creato soltanto quello dei clienti
              }
 	 }
-        Scanner FilmScanner=new Scanner(FilmLis);  // L'oggetto Scanner permette la lettura del testo contenuto in FilmLis in questo caso
-        Scanner PrestitoScanner=new Scanner(PrestitoLis); // Mentre qui la lettura del contenuto in PrestitoLis
-        Scanner ClienteScanner=new Scanner(ClienteLis); // Mentre qui la lettura del contenuto in ClientiLis
+        Scanner FilmScanner = new Scanner(FilmLis);  // L'oggetto Scanner permette la lettura del testo contenuto in FilmLis in questo caso
+        Scanner PrestitoScanner = new Scanner(PrestitoLis); // Mentre qui la lettura del contenuto in PrestitoLis
+        Scanner ClienteScanner = new Scanner(ClienteLis); // Mentre qui la lettura del contenuto in ClientiLis
 	
         while(FilmScanner.hasNext())  // Vengono acquisiti dati in ingresso
 	 {
-	    Regista AL=new Regista();
-	    Film film1=new Film();
+	    Regista RF = new Regista();
+	    Film film1 = new Film();
 	    film1.setDisponibilità(FilmScanner.nextInt());
 	    FilmScanner.nextLine();
 	    film1.setTitolo(FilmScanner.nextLine());
 	    film1.setCodice(FilmScanner.nextLine());
-	    AL.setNome(FilmScanner.nextLine());
-	    AL.setCognome(FilmScanner.nextLine());
-	    AL.setNazione(FilmScanner.nextLine());
-	    film1.setRegista(AL);
+	    RF.setNome(FilmScanner.nextLine());
+	    RF.setCognome(FilmScanner.nextLine());
+	    RF.setNazione(FilmScanner.nextLine());
+	    film1.setRegista(RF);
 	    vid.AggiungiFilm(film1);
 	 }
 
 	while(PrestitoScanner.hasNext())
 	 {
 	    int GiornoPrest,MesePrest,AnnoPrest;
-	    Film film1=new Film();
-	    Cliente cliente1=new Cliente();
+	    Film film1 = new Film();
+	    Cliente cliente1 = new Cliente();
 	    cliente1.Nolegg();
 	    String lettura;
-	    lettura=PrestitoScanner.nextLine();
-	    film1=vid.CercaFilmTitolo(lettura);
-	    GiornoPrest=PrestitoScanner.nextInt();
-	    MesePrest=PrestitoScanner.nextInt();
-	    AnnoPrest=PrestitoScanner.nextInt();
+	    lettura = PrestitoScanner.nextLine();
+	    film1 = vid.CercaFilmTitolo(lettura);
+	    GiornoPrest = PrestitoScanner.nextInt();
+	    MesePrest = PrestitoScanner.nextInt();
+	    AnnoPrest = PrestitoScanner.nextInt();
 	    PrestitoScanner.nextLine();
 	    cliente1.setNome(PrestitoScanner.nextLine());
 	    cliente1.setCognome(PrestitoScanner.nextLine());
@@ -174,13 +174,13 @@ public class FileManager {
             
             Prestito prestito = new Prestito(film1,cliente1,new Data(GiornoPrest,MesePrest,AnnoPrest));
 	    vid.getPrestiti().add(prestito);
-            boolean bo=false;
+            boolean bo = false;
 	    for(Cliente ClienteLista:vid.getClienti())
 	     {
 		if(cliente1.equals(ClienteLista))
 		 {
 			ClienteLista.Nolegg();
-			bo=true;
+			bo = true;
 		 }
 	     }
 	    if(!bo)
@@ -190,8 +190,8 @@ public class FileManager {
         
          while(ClienteScanner.hasNextInt())
           {
-            cliente1=new Cliente();
-            lettura=ClienteScanner.nextLine();
+            cliente1 = new Cliente();
+            lettura = ClienteScanner.nextLine();
             cliente1.setNome(lettura);
             cliente1.setCognome(lettura);
             cliente1.setCodiceFisc(lettura);
