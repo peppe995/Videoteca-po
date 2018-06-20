@@ -324,7 +324,7 @@ public class Main {
 			s=s+i+". "+FilmLista.getTitolo()+" - "+FilmLista.getCodice()
 			+" - "+FilmLista.getRegista().getNome()+" "+FilmLista.getRegista().getCognome()+
 				" - "+"Copie Disponibili: "+FilmLista.getDisponibilità()+"\n";
-			++i;
+			i++;
 		}
 		s=s+"\n";
 		s=s+"Si desidera noleggiarne uno?\n";
@@ -376,7 +376,7 @@ public class Main {
 					PrestitoLista.getCliente().getNome()+" "+
 					PrestitoLista.getCliente().getCognome()+" "+
 					PrestitoLista.getCliente().getCodiceFisc()+"\n";
-				++i;
+				i++;
 			}
 			String s1 = s+"\nCosa si vuole fare?";
 			String[] opzioni={"Applicare una restituzione avvenuta in ritardo",
@@ -655,7 +655,7 @@ public class Main {
                                                         PrestitoLista.getData()+" Data scadenza: "+
                                                         PrestitoLista.getScadenza()+"\n";
 							s1 = null;
-							++i;
+							i++;
 						}
 						JOptionPane.showMessageDialog(null, s);
 					}
