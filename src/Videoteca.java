@@ -115,7 +115,7 @@ public class Videoteca {
      * La "possibilità" di questa azione è data da:
      * 1) Un controllo sui noleggi correnti del cliente (Cliente), nel caso ne abbia 
      *    all'attivo un numero maggiore o uguale a 5 non verrà aggiunto il noleggio
-     * 2) Un controllo sulla disponibilità  del film (Film), se la disponibilità è minore o uguale a 0
+     * 2) Un controllo sulla disponibilità del film (Film), se la disponibilità è minore o uguale a 0
      *    non verrà aggiunto il noleggio.
      * Inoltre diminuisce di 1 la disponibilità del film e aumenta i noleggi all'attivo del cliente di 1
      * @param prestito noleggio da analizzare e ,eventualmente, aggiungere
@@ -124,8 +124,8 @@ public class Videoteca {
     public boolean Noleggio(Prestito prestito)
     {
         boolean b = false;
-        Film film1=new Film();
-        Cliente cliente1=new Cliente();
+        Film film1 = new Film();
+        Cliente cliente1 = new Cliente();
         for(Film FilmLista:film)
         {
             if(prestito.getFilm().equals(FilmLista))
@@ -193,7 +193,7 @@ public class Videoteca {
     
     
     /**
-     * Ricerca nella lista dei film quelli con il regista passato
+     * Ricerca nella lista dei film con il regista passato
      * @param nome il cognome del regista da cui ricercare i film
      * @param cognome il nome del film da cui ricercare i film
      * @return una lista dei film con il regista inserito
@@ -203,8 +203,8 @@ public class Videoteca {
         ArrayList<Film> FilmLis = new ArrayList<Film>();
         for(Film FilmLista:film)
         {
-            if(FilmLista.getFilm().getNome().equalsIgnoreCase(nome) && 
-                    FilmLista.getFilm().getCognome().equalsIgnoreCase(cognome))
+            if(FilmLista.getRegista().getNome().equalsIgnoreCase(nome) && 
+                    FilmLista.getRegista().getCognome().equalsIgnoreCase(cognome))
 	    {
 		    FilmLis.add(FilmLista);
 	    }
