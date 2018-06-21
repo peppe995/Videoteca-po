@@ -58,7 +58,7 @@ public class Videoteca {
         return film;
     }
 
-    /** Metodi Add per gli ArrayList */
+                        /** Metodi Add per gli ArrayList */
 
     /**
      * Aggiunge il film (Film) all'elenco; nel caso sia già presente, aumenta la
@@ -106,7 +106,7 @@ public class Videoteca {
 
 
 
-    /** Metodi Utili */
+                        /** Metodi Utili */
 
     /**
      * Aggiunge un noleggio alla lista controllando se ciò è possibile.
