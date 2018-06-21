@@ -23,21 +23,21 @@ public class Main {
 	
 	public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
 		
-		boolean safe=true;
-		boolean fatto=false;
-		int opt=-1;
-		JTextField InsTesto=new JTextField();
+		boolean safe = true;
+		boolean fatto = false;
+		int opt = -1;
+		JTextField InsTesto = new JTextField();
 //>>>>>>> 5e018401613c2994dc507dbc169c2f89b2c2b5df//
-		Object[] scelta={"Cosa si desidera fare (digitare il numero corrispondente)?"
+		Object[] scelta = {"Cosa si desidera fare (digitare il numero corrispondente)?"
 				+ "\n\n1) Aggiungere un film al database"
 				+ "\n\n2) Mostrare i film disponibili"
 				+ "\n\n3) Mostrare i noleggi scaduti\n\n4) Cercare un film, cliente o noleggio"
 				+ "\n\n5) Uscire","\n",InsTesto};
-		File film=new File("film.txt");
-		File prestiti=new File("prestiti.txt");
-		File clienti=new File("clienti.txt");
-		Videoteca vid=new Videoteca();
-		FileManager manager=new FileManager(vid);
+		File film = new File("film.txt");
+		File prestiti = new File("prestiti.txt");
+		File clienti = new File("clienti.txt");
+		Videoteca vid = new Videoteca();
+		FileManager manager = new FileManager(vid);
 		manager.Lettura(film, prestiti,clienti);
 		do
 		{
@@ -46,7 +46,7 @@ public class Main {
 				UIManager.put("OptionPane.cancelButtonText", "Esci");
 				UIManager.put("OptionPane.okButtonText", "OK");
 				InsTesto.setText("");
-				int option=JOptionPane.showConfirmDialog(null, scelta, "Menù",
+				int option = JOptionPane.showConfirmDialog(null, scelta, "Menù",
 						JOptionPane.OK_CANCEL_OPTION);
 				if(option==JOptionPane.OK_OPTION)
 				{
@@ -60,17 +60,17 @@ public class Main {
 					{
 						switch(opt)
 						{
-							case 1: safe=false; AggiungiNuovoFilm(vid);                      break;
-							case 2: safe=false; MostraFilm(vid);                             break;
-							case 3: safe=false; ControlloScad(vid);                           break;
-							case 4: safe=false; Ricerca(vid);                                 break;
-							case 5: fatto=Uscita(safe,film,prestiti,clienti,manager,fatto);  break;
+							case 1: safe = false; AggiungiNuovoFilm(vid);                      break;
+							case 2: safe = false; MostraFilm(vid);                             break;
+							case 3: safe = false; ControlloScad(vid);                           break;
+							case 4: safe = false; Ricerca(vid);                                 break;
+							case 5: fatto = Uscita(safe,film,prestiti,clienti,manager,fatto);  break;
 						}
 					}
 				}
 				else
 				{
-					fatto=Uscita(safe,film,prestiti,clienti,manager,fatto);
+					fatto = Uscita(safe,film,prestiti,clienti,manager,fatto);
 				}
 			}
 			catch(NumberFormatException e)
@@ -92,22 +92,22 @@ public class Main {
 	public static void AggiungiNuovoFilm(Videoteca vid) throws NumberFormatException, IOException
 	{
 		int opzione;
-		JTextField titolo=new JTextField();
-		JTextField codice=new JTextField();
-		JTextField NomeRegista=new JTextField();
-		JTextField CognomeRegista=new JTextField();
-		JTextField NazioneRegista=new JTextField();
-		JTextField Copie=new JTextField();
-		Object[] StatoFilm={"Titolo:",titolo,"Codice ISAN:",codice,"Numero di copie:",Copie,"Nome del regista:",NomeRegista,
-				"Cognome del Regista:",CognomeRegista,"Nazione del regita:",NazioneRegista};
-		boolean fatto=false;
+		JTextField titolo = new JTextField();
+		JTextField codice = new JTextField();
+		JTextField NomeRegista = new JTextField();
+		JTextField CognomeRegista = new JTextField();
+		JTextField NazioneRegista = new JTextField();
+		JTextField Copie = new JTextField();
+		Object[] StatoFilm = {"Titolo:",titolo,"Codice ISAN:",codice,"Numero di copie:",Copie,"Nome del regista:",NomeRegista,
+				"Cognome del Regista:",CognomeRegista,"Nazione del regista:",NazioneRegista};
+		boolean fatto = false;
 		do
 		{
 			try
 			{
 				UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 				UIManager.put("OptionPane.okButtonText", "Aggiungi");
-				opzione=JOptionPane.showConfirmDialog(null,StatoFilm,"Inserire"
+				opzione = JOptionPane.showConfirmDialog(null,StatoFilm,"Inserire"
 						+ " i dati sul film:",JOptionPane.OK_CANCEL_OPTION);
 				UIManager.put("OptionPane.okButtonText", "OK");
 				if(opzione==JOptionPane.OK_OPTION)
@@ -119,9 +119,9 @@ public class Main {
 					}
 					else
 					{
-						fatto=true;
-						Film film1=new Film();
-						Regista rf=new Regista();
+						fatto = true;
+						Film film1 = new Film();
+						Regista rf = new Regista();
 						film1.setTitolo(titolo.getText());
 						film1.setCodice(codice.getText());
 						film1.setDisponibilita(Integer.parseInt(Copie.getText()));
@@ -136,7 +136,7 @@ public class Main {
 				}
 				else
 				{
-					fatto=true;
+					fatto = true;
 					JOptionPane.showMessageDialog(null, "Immissione annullata!");
 				}
 			}
@@ -157,34 +157,34 @@ public class Main {
 
 	public static void Prestito(Videoteca vid) throws NumberFormatException
 	{
-		JTextField NomeCliente=new JTextField();
-		JTextField CognomeCliente=new JTextField();
-		JTextField codicef=new JTextField();
-		JTextField NomeFilm=new JTextField();
-		Object[] StatoPrest={"Nome del cliente:",NomeCliente,"Cognome del cliente:",CognomeCliente,
+		JTextField NomeCliente = new JTextField();
+		JTextField CognomeCliente = new JTextField();
+		JTextField codicef = new JTextField();
+		JTextField NomeFilm = new JTextField();
+		Object[] StatoPrest = {"Nome del cliente:",NomeCliente,"Cognome del cliente:",CognomeCliente,
 				"Codice fiscale:",codicef,"Titolo del film da noleggiare:",NomeFilm};
 
-		boolean fatto=false;
+		boolean fatto = false;
 		do
 		{
 			try
 			{
 				UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 				UIManager.put("OptionPane.okButtonText", "Noleggia");
-				int opzione=JOptionPane.showConfirmDialog(null, StatoPrest, "Informazioni per il noleggio",
+				int opzione = JOptionPane.showConfirmDialog(null, StatoPrest, "Informazioni per il noleggio",
 						JOptionPane.OK_CANCEL_OPTION);
 				if(opzione==JOptionPane.OK_OPTION)
 				{
 					UIManager.put("OptionPane.okButtonText", "OK");
-					Cliente cliente1=new Cliente();
+					Cliente cliente1 = new Cliente();
 					cliente1.setNome(NomeCliente.getText());
 					cliente1.setCognome(CognomeCliente.getText());
 					cliente1.setCodiceFisc(codicef.getText());
-					Film film1=vid.CercaFilmTitolo(NomeFilm.getText());
+					Film film1 = vid.CercaFilmTitolo(NomeFilm.getText());
 					if(film1!=null)
 					{
-						Data DataPrestito=DataOdierna();
-						Prestito prestito=new Prestito(film1, cliente1, DataPrestito);
+						Data DataPrestito = DataOdierna();
+						Prestito prestito = new Prestito(film1, cliente1, DataPrestito);
 						if(vid.Noleggio(prestito))
 						{
 							JOptionPane.showMessageDialog(null,"Noleggio effettuato, "
@@ -207,7 +207,7 @@ public class Main {
 					UIManager.put("OptionPane.okButtonText", "OK");
 					JOptionPane.showMessageDialog(null,"Noleggio non effettuato!");
 				}
-				fatto=true;
+				fatto = true;
 			}
 			catch(NumberFormatException e)
 			{
@@ -220,31 +220,31 @@ public class Main {
 
 	/**
 	 * Questa funzione esegue una restituzione inserendo le credenziali del cliente
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di film, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero 
 	 */
 
 	public static void Restituzione(Videoteca vid) throws NumberFormatException
 	{
-		JTextField Nome=new JTextField();
-		JTextField Cognome=new JTextField();
-		JTextField Codice=new JTextField();
-		JTextField tf=new JTextField();
+		JTextField Nome = new JTextField();
+		JTextField Cognome = new JTextField();
+		JTextField Codice = new JTextField();
+		JTextField tf = new JTextField();
 		Object[] StatoRestit={"Credenziali del cliente:\nNome:",Nome,"Cognome:",Cognome,"Codice fiscale:",Codice,
 				"Titolo del film noleggiato:",tf};
-		boolean fatto=false;
+		boolean fatto = false;
 		do
 		{
 			try
 			{
 				UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 				UIManager.put("OptionPane.okButtonText", "Restituire");
-				int opzione=JOptionPane.showConfirmDialog(null, StatoRestit, "Restituzione film",
+				int opzione = JOptionPane.showConfirmDialog(null, StatoRestit, "Restituzione film",
 						JOptionPane.OK_CANCEL_OPTION);
 				if(opzione==JOptionPane.OK_OPTION)
 				{
 					UIManager.put("OptionPane.okButtonText", "OK");
-					Prestito prestito=vid.RicercaPrestito(tf.getText(), Nome.getText(), Cognome.getText(), Codice.getText());
+					Prestito prestito = vid.RicercaPrestito(tf.getText(), Nome.getText(), Cognome.getText(), Codice.getText());
 
 					if(prestito!=null)
 					{
@@ -262,7 +262,7 @@ public class Main {
 					UIManager.put("OptionPane.okButtonText", "OK");
 					JOptionPane.showMessageDialog(null, "Restituzione annullata!");
 				}
-				fatto=true;
+				fatto = true;
 			}
 			catch(NumberFormatException e)
 			{
@@ -273,18 +273,18 @@ public class Main {
 		while(!fatto);
 	}
 	/**
-	 * Questa funzione dà la possibilità di effettuare una ricerca nella reria su tre rami:
-	 * 1) Ricerca attraverso i ri;
+	 * Questa funzione dà la possibilità di effettuare una ricerca nella videoteca su tre rami:
+	 * 1) Ricerca attraverso i film;
 	 * 2) Ricerca attraverso i clienti;
 	 * 3) Ricerca attraverso i noleggi.
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 */
 
 	public static void Ricerca(Videoteca vid) throws NumberFormatException
 	{
 		String[] opzioni = new String[] {"Film", "Clienti", "Noleggi", "Torna al Menù"};
-		int choice=JOptionPane.showOptionDialog(null, "Cosa si desidera ricercare?\n\nLibri, Clienti"
+		int choice = JOptionPane.showOptionDialog(null, "Cosa si desidera ricercare?\n\nFilm, Clienti"
 						+ " o Noleggi?", "Ricerca...",
 				JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[0]);
 		switch(choice)
@@ -305,34 +305,34 @@ public class Main {
 
 	public static Data DataOdierna()
 	{
-		Calendar data=null;
+		Calendar data = null;
 		data=Calendar.getInstance();
-		Data dataodierna=new Data(data.get(Calendar.DATE),data.get(Calendar.MONTH),data.get(Calendar.YEAR));
+		Data dataodierna = new Data(data.get(Calendar.DATE),data.get(Calendar.MONTH),data.get(Calendar.YEAR));
 		return dataodierna;
 	}
 
 	/**
-	 * Questa funzione mostra i ri disponibili indicando i loro dati e dando l'opportunità di effettuare il noleggio 
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * Questa funzione mostra i film disponibili indicando i loro dati e dando l'opportunità di effettuare il noleggio 
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 */
 
 	public static void MostraFilm(Videoteca vid)
 	{
-		int i=1;
-		String s="";
+		int i = 1;
+		String s = "";
 		Collections.sort(vid.getFilm());
 		for(Film FilmLista:vid.getFilm())
 		{
-			s=s+i+". "+FilmLista.getTitolo()+" - "+FilmLista.getCodice()
+			s = s+i+". "+FilmLista.getTitolo()+" - "+FilmLista.getCodice()
 					+" - "+FilmLista.getRegista().getNome()+" "+FilmLista.getRegista().getCognome()+
 					" - "+"Copie Disponibili: "+FilmLista.getDisponibilita()+"\n";
 			i++;
 		}
-		s=s+"\n";
-		s=s+"Si desidera noleggiarne uno?\n";
+		s = s+"\n";
+		s = s+"Si desidera noleggiarne uno?\n";
 		UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 		UIManager.put("OptionPane.okButtonText", "Noleggia");
-		int scelta=JOptionPane.showConfirmDialog(null,s,
+		int scelta = JOptionPane.showConfirmDialog(null,s,
 				"Cosa vuoi fare?",JOptionPane.OK_CANCEL_OPTION);
 
 
@@ -345,19 +345,19 @@ public class Main {
 
 	/**
 	 * Questa funzione analizza le date dei prestiti indicandone le scadenze con la possibilità di mostrare eventuali prestiti scaduti
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 */
 
 	public static void ControlloScad(Videoteca vid)
 	{
 		int opzione;
-		Data data3=DataOdierna();
-		ArrayList<Prestito> scaduto=new ArrayList<Prestito>();
+		Data data3 = DataOdierna();
+		ArrayList<Prestito> scaduto = new ArrayList<Prestito>();
 		//Collections.sort(vid.getPrestiti());
 		for(Prestito PrestitoLista:vid.getPrestiti())
 		{
-			Data data4=PrestitoLista.getScadenza();
-			opzione=data4.compareTo(data3);
+			Data data4 = PrestitoLista.getScadenza();
+			opzione = data4.compareTo(data3);
 			if(opzione==-1)
 			{
 				scaduto.add(PrestitoLista);
@@ -370,20 +370,20 @@ public class Main {
 		}
 		else
 		{
-			String s="";
-			int i=0;
+			String s = "";
+			int i = 0;
 			for(Prestito PrestitoLista:scaduto)
 			{
-				s=s+i+") "+PrestitoLista.getScadenza()+": "+PrestitoLista.getFilm().getTitolo()+" - "+
+				s = s+i+") "+PrestitoLista.getScadenza()+": "+PrestitoLista.getFilm().getTitolo()+" - "+
 						PrestitoLista.getCliente().getNome()+" "+
 						PrestitoLista.getCliente().getCognome()+" "+
 						PrestitoLista.getCliente().getCodiceFisc()+"\n";
 				i++;
 			}
-			String s1=s+"\nCosa si vuole fare?";
-			String[] opzioni={"Applicare una restituzione avvenuta in ritardo",
+			String s1 = s+"\nCosa si vuole fare?";
+			String[] opzioni = {"Applicare una restituzione avvenuta in ritardo",
 					"Rimuovere un film non più restituito", "Tornare al Menù"};
-			int scelta=JOptionPane.showOptionDialog(null, s1, "Menù",
+			int scelta = JOptionPane.showOptionDialog(null, s1, "Menù",
 					JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[0]);
 
 			switch(scelta)
@@ -399,7 +399,7 @@ public class Main {
 
 	/**
 	 * Questa funzione esegue la rimozione di un noleggio dalla lista dei prestiti presente nella videoteca.
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di film, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @param stringa Oggetto di tipo String attraverso il quale viene indicato il testo da inserire.
 	 * @param exp ArrayList contenente i prestiti da cui effettuare poi la rimozione.
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
@@ -407,11 +407,11 @@ public class Main {
 
 	public static void Rimuovi(Videoteca vid,String stringa,ArrayList<Prestito> exp) throws NumberFormatException
 	{
-		boolean fatto=false;
-		JTextField scelta=new JTextField();
+		boolean fatto = false;
+		JTextField scelta = new JTextField();
 		int opzione;
-		stringa=stringa+"\n\n"+ "Digitare il numero corrispondente al noleggio da rimuovere";
-		Object[] message={stringa, scelta};
+		stringa = stringa+"\n\n"+ "Digitare il numero corrispondente al noleggio da rimuovere";
+		Object[] message = {stringa, scelta};
 		do
 		{
 			try
@@ -419,18 +419,18 @@ public class Main {
 				UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 				UIManager.put("OptionPane.okButtonText", "OK");
 				scelta.setText("");
-				opzione=JOptionPane.showConfirmDialog(null,message,"Scelta",JOptionPane.OK_CANCEL_OPTION);
+				opzione = JOptionPane.showConfirmDialog(null,message,"Scelta",JOptionPane.OK_CANCEL_OPTION);
 				if(opzione==JOptionPane.OK_OPTION)
 				{
-					opzione=Integer.parseInt(scelta.getText());
+					opzione = Integer.parseInt(scelta.getText());
 					vid.getPrestiti().remove(exp.get(opzione));
-					fatto=true;
+					fatto = true;
 					JOptionPane.showMessageDialog(null,"Rimozione effettuata con successo!");
 				}
 				else
 				{
 					JOptionPane.showMessageDialog(null,"Operazione annullata!");
-					fatto=true;
+					fatto = true;
 				}
 			}
 			catch(NumberFormatException e)
@@ -447,18 +447,18 @@ public class Main {
 
 	/**
 	 * Questa funzione esegue la ricerca dei film attraverso le seguenti sotto-categorie:
-	 * 1) Ricerca attraverso l'autore;
+	 * 1) Ricerca attraverso il regista;
 	 * 2) Ricerca attraverso il titolo;
 	 * Di seguito a seconda della scelta, vengono richiamate le funzioni apposite.
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di film, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 */
 
 	public static void RicercaFilm(Videoteca vid) throws NumberFormatException
 	{
-		String s="Cosa si vuole fare?\n\nCercare Film in base al:";
-		String[] opzioni={"Titolo", "Regista", "Tornare al Menù"};
-		int scelta=JOptionPane.showOptionDialog(null, s, "Ricerca",
+		String s = "Cosa si vuole fare?\n\nCercare Film in base al:";
+		String[] opzioni = {"Titolo", "Regista", "Tornare al Menù"};
+		int scelta = JOptionPane.showOptionDialog(null, s, "Ricerca",
 				JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[0]);
 		switch(scelta)
 		{
@@ -471,19 +471,19 @@ public class Main {
 
 	/**
 	 * Questa funzione effettua la ricerca dei clienti attraverso l'inserimento delle credenziali verificando anche i prestiti disponibili per il singolo cliente. 
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 */
 
 	public static void RicercaClienti(Videoteca vid) throws NumberFormatException
 	{
-		JTextField NomeCl1=new JTextField();
-		JTextField CognomeCl1=new JTextField();
-		JTextField CodicefCl1=new JTextField();
-		Object[] message={"Inserire nome, cognome e codice fiscale del cliente:", " Nome: ", NomeCl1,
+		JTextField NomeCl1 = new JTextField();
+		JTextField CognomeCl1 = new JTextField();
+		JTextField CodicefCl1 = new JTextField();
+		Object[] message = {"Inserire nome, cognome e codice fiscale del cliente:", " Nome: ", NomeCl1,
 				" Cognome:", CognomeCl1, " Codice fiscale: ", CodicefCl1};
 
-		boolean fatto=false;
+		boolean fatto = false;
 		do
 		{
 			try
@@ -493,27 +493,27 @@ public class Main {
 				NomeCl1.setText("");
 				CognomeCl1.setText("");
 				CodicefCl1.setText("");
-				int opzione=JOptionPane.showConfirmDialog(null, message,
+				int opzione = JOptionPane.showConfirmDialog(null, message,
 						"Ricerca clienti", JOptionPane.OK_CANCEL_OPTION);
 				if(opzione==JOptionPane.OK_OPTION)
 				{
-					Cliente cliente1=new Cliente();
-					cliente1=vid.CercaCliente(NomeCl1.getText(), CognomeCl1.getText(), CodicefCl1.getText());
+					Cliente cliente1 = new Cliente();
+					cliente1 = vid.CercaCliente(NomeCl1.getText(), CognomeCl1.getText(), CodicefCl1.getText());
 					if(cliente1==null)
 					{
 						JOptionPane.showMessageDialog(null,"Il cliente non è "
 								+ "presente nel database!");
-						fatto=true;
+						fatto = true;
 					}
 					else
 					{
-						fatto=true;
-						String s="Nome: "+cliente1.getNome()
+						fatto = true;
+						String s = "Nome: "+cliente1.getNome()
 								+" "+cliente1.getCognome()+" "+
 								"    Noleggi effettuati: "+cliente1.getPrestiti()+"\n\n";
 						if(cliente1.getPrestiti()>0)
 						{
-							ArrayList<Prestito> PrestitiAtt=vid.CercaPrestitoCliente(NomeCl1.getText(),CognomeCl1.getText(), CodicefCl1.getText());
+							ArrayList<Prestito> PrestitiAtt = vid.CercaPrestitoCliente(NomeCl1.getText(),CognomeCl1.getText(), CodicefCl1.getText());
 							PrestitiClienteAtt(vid, s, PrestitiAtt);
 						}
 						else
@@ -528,7 +528,7 @@ public class Main {
 				{
 					UIManager.put("OptionPane.okButtonText", "OK");
 					JOptionPane.showMessageDialog(null, "Operazione annullata!");
-					fatto=true;
+					fatto = true;
 				}
 			}
 			catch(NumberFormatException e)
@@ -541,7 +541,7 @@ public class Main {
 
 	/**
 	 * Questa funzione analizza i prestiti attivi del cliente, valutando anche la possibilità di una restituzione.
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @param s Oggetto di tipo String che indica l'inserimento del testo desiderato con il richiamo delle funzioni.
 	 * @param PrestitiAtt ArrayList dei prestiti in attivo del cliente.
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero 
@@ -549,20 +549,20 @@ public class Main {
 
 	public static void PrestitiClienteAtt(Videoteca vid, String s, ArrayList<Prestito> PrestitiAtt) throws NumberFormatException
 	{
-		int i=1;
-		int opzione=0;
-		JTextField scelta=new JTextField();
+		int i = 1;
+		int opzione = 0;
+		JTextField scelta = new JTextField();
 		for(Prestito PrestitoLista:PrestitiAtt)
 		{
-			s=s+i+". "+PrestitoLista.getFilm().getTitolo()+
+			s = s+i+". "+PrestitoLista.getFilm().getTitolo()+
 					" - Data noleggio: "+PrestitoLista.getData()+
 					"   Data scadenza: "+PrestitoLista.getScadenza()+"\n";
 			i++;
 		}
-		Object[] message1={s,"Si desidera effettuare una restituzione?"
+		Object[] message1 = {s,"Si desidera effettuare una restituzione?"
 				+ "\n1)Si\n2)No\n"
 				,scelta};
-		boolean fatto=false;
+		boolean fatto = false;
 		do
 		{
 			try
@@ -574,7 +574,7 @@ public class Main {
 						"Scelta",JOptionPane.OK_CANCEL_OPTION);
 				if(opzione==JOptionPane.OK_OPTION)
 				{
-					opzione=Integer.parseInt(scelta.getText());
+					opzione = Integer.parseInt(scelta.getText());
 					if(opzione<1 || opzione>2)
 					{
 						JOptionPane.showMessageDialog(null,
@@ -583,7 +583,7 @@ public class Main {
 					}
 					else
 					{
-						fatto=true;
+						fatto = true;
 						switch(opzione)
 						{
 							case 1: Restituzione(vid); break;
@@ -593,7 +593,7 @@ public class Main {
 				}
 				else
 				{
-					fatto=true;
+					fatto = true;
 					JOptionPane.showMessageDialog(null,
 							"Operazione annullata!");
 				}
@@ -610,27 +610,27 @@ public class Main {
 	/**
 	 * Questa funzione ci permette di trovare un noleggio (inserendo il titolo del film eventualmente noleggiato),restituendoci i dati del noleggio richiesto
 	 * (nome, cognome, codice fiscale del cliente che ha effettuato il noleggio, data effettiva e data di scadenza del noleggio stesso).
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 */
 
 	public static void RicercaPerPrestiti(Videoteca vid) throws NumberFormatException
 	{
-		JTextField TL=new JTextField();
-		Object[] message={"Inserire il nome del film da controllare:", TL};
-		boolean fatto=false;
+		JTextField tf = new JTextField();
+		Object[] message = {"Inserire il nome del film da controllare:", tf};
+		boolean fatto = false;
 		do
 		{
 			try
 			{
 				UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 				UIManager.put("OptionPane.okButtonText", "Cerca");
-				TL.setText("");
-				int opzione=JOptionPane.showConfirmDialog(null, message, "Nome del film",
+				tf.setText("");
+				int opzione = JOptionPane.showConfirmDialog(null, message, "Nome del film",
 						JOptionPane.OK_CANCEL_OPTION);
 				if(opzione==JOptionPane.OK_OPTION)
 				{
-					ArrayList<Prestito> prestiti=vid.CercaPrestitoFilm(TL.getText());
+					ArrayList<Prestito> prestiti=vid.CercaPrestitoFilm(tf.getText());
 					if(prestiti.isEmpty())
 					{
 						JOptionPane.showMessageDialog(null,
@@ -638,36 +638,36 @@ public class Main {
 					}
 					else
 					{
-						int i=1;
-						int width=40;
-						int pad=0;
-						String s=prestiti.get(0).getFilm().getTitolo()+
+						int i = 1;
+						int width = 40;
+						int pad = 0;
+						String s = prestiti.get(0).getFilm().getTitolo()+
 								" è noleggiato dai seguenti clienti: \n";
 						String s1,s2;
 						for(Prestito PrestitoLista:prestiti)
 						{
-							s1=PrestitoLista.getCliente().getNome()+" "+PrestitoLista.getCliente().getCognome()+" \nCodice Fiscale: "+PrestitoLista.getCliente().getCodiceFisc();
-							pad=width-s1.length()-(1)/(i+2);
+							s1 = PrestitoLista.getCliente().getNome()+" "+PrestitoLista.getCliente().getCognome()+" \nCodice Fiscale: "+PrestitoLista.getCliente().getCodiceFisc();
+							pad = width-s1.length()-(1)/(i+2);
 							for(int j=0; j<pad; j++)
 							{
-								s1=s1+" ";
+								s1 = s1+" ";
 							}
-							s= s+i + " Nome: " + s1 +" "+
+							s = s+i + " Nome: " + s1 +" "+
 									"  Data noleggio: "+
 									PrestitoLista.getData()+" Data scadenza: "+
 									PrestitoLista.getScadenza()+"\n";
-							s1=null;
+							s1 = null;
 							i++;
 						}
 						JOptionPane.showMessageDialog(null, s);
 					}
-					fatto=true;
+					fatto = true;
 				}
 				else
 				{
 					UIManager.put("OptionPane.okButtonText", "OK");
 					JOptionPane.showMessageDialog(null, "Operazione annullata!");
-					fatto=true;
+					fatto = true;
 				}
 			}
 			catch(NumberFormatException e)
@@ -679,24 +679,24 @@ public class Main {
 	}
 
 	/**
-	 * Questa funzione ci permette di trovare un film (eventualmente presente nella biblioteca) attraverso il titolo del film stesso,
-	 * ci restituisce in output i seguenti dati: nome, cognome, nazionalità del regista, codice ISBN del film con la relativa disponibilità.
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * Questa funzione ci permette di trovare un film (eventualmente presente nella videoteca) attraverso il titolo del film stesso,
+	 * ci restituisce in output i seguenti dati: nome, cognome, nazionalità del regista, codice ISAN del film con la relativa disponibilità.
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 */
 
 	public static void RicercaFilmTitolo(Videoteca vid) throws NumberFormatException
 	{
-		JTextField tf=new JTextField();
-		Object[] message={"Inserire il titolo del film:", tf};
+		JTextField tf = new JTextField();
+		Object[] message = {"Inserire il titolo del film:", tf};
 		UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 		UIManager.put("OptionPane.okButtonText", "Cerca");
 		tf.setText("");
-		int opzione=JOptionPane.showConfirmDialog(null, message,
+		int opzione = JOptionPane.showConfirmDialog(null, message,
 				"Per Titolo", JOptionPane.OK_CANCEL_OPTION);
 		if(opzione==JOptionPane.OK_OPTION)
 		{
-			Film film1=vid.CercaFilmTitolo(tf.getText());
+			Film film1 = vid.CercaFilmTitolo(tf.getText());
 			if(film1==null)
 			{
 				UIManager.put("OptionPane.okButtonText", "OK");
@@ -707,11 +707,11 @@ public class Main {
 			{
 				UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 				UIManager.put("OptionPane.yesButtonText", "Noleggia");
-				UIManager.put("OptionPane.noButtonText", "Rimuovi dalla biblioteca");
-				String s="Titolo: "+film1.getTitolo()
+				UIManager.put("OptionPane.noButtonText", "Rimuovi dalla videoteca");
+				String s = "Titolo: "+film1.getTitolo()
 						+"   Regista: " +film1.getRegista().getNome()+" " + film1.getRegista().getCognome()+ " Nazione: "+film1.getRegista().getNazione()+
-						"  Codice ISBN: " + film1.getCodice() + " Disponibilità: " + film1.getDisponibilita()+"\n";
-				s=s+"\nCosa si desidera fare?\n";
+						"  Codice ISAN: " + film1.getCodice() + " Disponibilità: " + film1.getDisponibilita()+"\n";
+				s = s+"\nCosa si desidera fare?\n";
 				opzione=JOptionPane.showConfirmDialog(null, s, "Menù",
 						JOptionPane.YES_NO_CANCEL_OPTION);
 				switch(opzione)
@@ -741,9 +741,9 @@ public class Main {
 	}
 
 	/**
-	 * Questa funzione ci permette di trovare un film (eventualmente presente nella biblioteca) attraverso l'autore del film stesso,
-	 * ci restituisce in output i seguenti dati: il titolo del film, nome e cognome del regista, codice ISBN e la disponibilità del film stesso.
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi 
+	 * Questa funzione ci permette di trovare un film (eventualmente presente nella videoteca) attraverso il regista del film stesso,
+	 * ci restituisce in output i seguenti dati: il titolo del film, nome e cognome del regista, codice ISAN e la disponibilità del film stesso.
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi 
 	 */
 
 	public static void RicercaFilmRegista(Videoteca vid)
@@ -776,7 +776,7 @@ public class Main {
 					s=s+i+" - Titolo: "+FilmLista.getTitolo()+
 							" - Regista: "+ FilmLista.getRegista().getNome()+" "+FilmLista.getRegista().getCognome()+
 							" - Nazione: "+ FilmLista.getRegista().getNazione()+
-							" - Codice ISBN: "+ FilmLista.getCodice()+
+							" - Codice ISAN: "+ FilmLista.getCodice()+
 							" - Copie Disponibili: "+ FilmLista.getDisponibilita()+"\n";
 					i++;
 				}
@@ -803,7 +803,7 @@ public class Main {
 
 	/**
 	 * Funzione che esegue l'uscita.
-	 * @param safe Variabile booleana che ci permette di salvare lo stato attuale della biblioteca.
+	 * @param safe Variabile booleana che ci permette di salvare lo stato attuale della videoteca.
 	 * @param film File che include l'elenco dei film
 	 * @param prestiti File che include l'elenco dei prestiti
 	 * @param clienti File che include l'elenco dei clienti
@@ -823,20 +823,20 @@ public class Main {
 			UIManager.put("OptionPane.yesButtonText", "Uscire senza Salvare");
 			UIManager.put("OptionPane.noButtonText", "Salva ed Esci");
 			UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
-			int scelta=JOptionPane.showConfirmDialog(null, "Uscire senza salvare?", "Uscita",
+			int scelta = JOptionPane.showConfirmDialog(null, "Uscire senza salvare?", "Uscita",
 					JOptionPane.YES_NO_CANCEL_OPTION);
 			UIManager.put("OptionPane.okButtonText", "OK");
 
 			switch(scelta)
 			{
-				case JOptionPane.YES_OPTION:    fatto=true; safe=true;                                break;
-				case JOptionPane.NO_OPTION:     fatto=true; safe=true; manager.Scrittura(film, prestiti,clienti); break;
+				case JOptionPane.YES_OPTION:    fatto = true; safe = true;                                break;
+				case JOptionPane.NO_OPTION:     fatto = true; safe = true; manager.Scrittura(film, prestiti,clienti); break;
 				case JOptionPane.CANCEL_OPTION:                                                      break;
 			}
 		}
 		else
 		{
-			fatto=true;
+			fatto = true;
 		}
 
 		return fatto;
