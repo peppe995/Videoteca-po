@@ -1,3 +1,4 @@
+
 import java.io.File; // Pacchetto che dà possibilità di creare il file
 import java.io.FileNotFoundException; // Eccezione riguardante il file nel caso non sia trovato
 import java.io.IOException; // Eccezione a controllo obbligatorio (errore non gestibile dal programmatore)
@@ -9,6 +10,16 @@ import java.util.Calendar; // Pacchetto che include classi che permettono di def
 import javax.swing.*;  // Importa il package swing , ossia le classi per interfacce utenti, e i sottopackage 
 
 public class Main {
+//<<<<<<< HEAD//
+
+ //public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
+       
+            
+            /*  boolean safe = true;
+		boolean fatto = false;
+		int opt = -1;
+		JTextField InsTesto = new JTextField();   */
+//=======//
 	
 	public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
 		
@@ -16,6 +27,7 @@ public class Main {
 		boolean fatto=false;
 		int opt=-1;
 		JTextField InsTesto=new JTextField();
+//>>>>>>> 5e018401613c2994dc507dbc169c2f89b2c2b5df//
 		Object[] scelta={"Cosa si desidera fare (digitare il numero corrispondente)?"
 				+ "\n\n1) Aggiungere un film al database"
 				+ "\n\n2) Mostrare i film disponibili"

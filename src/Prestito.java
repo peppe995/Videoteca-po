@@ -69,7 +69,7 @@ public class Prestito {
 
     public Film getFilm()
     {
-        return new Film(film.getTitolo(),film.getRegista(),film.getCodice());
+        return film = new Film(film.getTitolo(),film.getRegista(),film.getCodice());
     }
 
     /**
@@ -89,7 +89,7 @@ public class Prestito {
 
     public Data getData()
     {
-        return new Data(data.getGiorno(),data.getMese(),data.getAnno());
+        return data = new Data(data.getGiorno(),data.getMese(),data.getAnno());
     }
 
     /**
@@ -99,7 +99,7 @@ public class Prestito {
 
     public Data getScadenza()
     {
-        return new Data(scadenza.getGiorno(),scadenza.getMese(),scadenza.getAnno());
+        return scadenza = new Data(scadenza.getGiorno(),scadenza.getMese(),scadenza.getAnno());
     }
 
     /**

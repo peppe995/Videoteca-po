@@ -165,14 +165,18 @@ public class Videoteca {
     public void Restituzione(Prestito prestito)
     {
         Cliente cliente1 = new Cliente();
-        cliente1=this.CercaCliente(prestito.getCliente().getNome(), prestito.getCliente().getCognome(),prestito.getCliente().getCodiceFisc());
+        cliente1 = this.CercaCliente(prestito.getCliente().getNome(), prestito.getCliente().getCognome(),prestito.getCliente().getCodiceFisc());
         this.prestiti.remove(prestito);
         cliente1.Restituzione();
         CercaFilmTitolo(prestito.getFilm().getTitolo()).Restituzione();
     }
 
     /**
+<<<<<<< HEAD
      * Viene ricercato nella lista dei film, il film con il titolo ricercato
+=======
+     * Viene ricercato nella lista dei film quello con il titolo ricercato
+>>>>>>> 4ba83931a1056b51b5ac9e05e81a83c12c78b421
      * @param tf Titolo del film da ricercare
      * @return il film ricercato se già presente, altrimenti ritorna "null".
      */

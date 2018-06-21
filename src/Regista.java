@@ -62,7 +62,7 @@ public class Regista extends Persona {
 
     public void setNazione(String NazioneR)
     {
-        nazione=NazioneR;
+        nazione = NazioneR;
     }
 
     /**
