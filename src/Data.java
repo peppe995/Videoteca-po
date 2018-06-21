@@ -1,7 +1,7 @@
 import java.lang.Comparable;
 
 /**
- * La classe Data descrive giorno ,mese ed anno di una data
+ * La classe Data descrive giorno, mese ed anno di una data
  * controllando che i valori inseriti rispettino le bisestilità e le lunghezze effettive dei mesi.
  *
  * @author Carlone Giuseppe Pio

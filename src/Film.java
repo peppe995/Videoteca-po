@@ -126,7 +126,7 @@ public class Film implements Comparable{
     {
         return codice;
     }
-    /** Metodi Set */
+                 /** Metodi Set */
     /**
      * Permette di stabilire il titolo di un film
      * @param tf rappresenta il titolo del film selezionato
