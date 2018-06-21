@@ -79,8 +79,8 @@ public class FileManager {
         {
             SalvaFilm.println(FilmLista.getDisponibilita());   // Nella fase di scrittura della lista che
             SalvaFilm.println(FilmLista.getTitolo());          // caratterizza il film, vengono trasferiti i seguenti
-            SalvaFilm.println(FilmLista.getCodice());          // dati: Disponibilità del film, titolo, codice ISBN, Nome, Cognome
-            SalvaFilm.println(FilmLista.getRegista().getNome());  // e nazione dell'autore
+            SalvaFilm.println(FilmLista.getCodice());          // dati: Disponibilità del film, titolo, codice ISAN, Nome, Cognome
+            SalvaFilm.println(FilmLista.getRegista().getNome());  // e nazione del regista
             SalvaFilm.println(FilmLista.getRegista().getCognome());
             SalvaFilm.println(FilmLista.getRegista().getNazione());
         }

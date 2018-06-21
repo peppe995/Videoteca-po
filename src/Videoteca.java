@@ -172,7 +172,7 @@ public class Videoteca {
     }
 
     /**
-     * Viene ricercato nella lista dei film, il libro con il titolo ricercato
+     * Viene ricercato nella lista dei film, il film con il titolo ricercato
      * @param tf Titolo del film da ricercare
      * @return il film ricercato se già presente, altrimenti ritorna "null".
      */
