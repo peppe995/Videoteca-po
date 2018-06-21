@@ -7,7 +7,7 @@ import java.util.Scanner; // Pacchetto per la lettura di file di testo
 
 /**
  * Gestisce la scrittura e la lettura su/da file
- * degli elementi di un oggetto della classe Libreria
+ * degli elementi di un oggetto della classe Videoteca
  *
  * @author Carlone Giuseppe Pio
  * @author Mambella Alessandra
@@ -29,7 +29,7 @@ public class FileManager {
 
     public FileManager(Videoteca videoteca)
     {
-        vid=videoteca;
+        vid = videoteca;
     }
 
     /**
@@ -50,7 +50,7 @@ public class FileManager {
 
     public void setVid(Videoteca videoteca)
     {
-        vid=videoteca;
+        vid = videoteca;
     }
 
     /**
@@ -68,25 +68,25 @@ public class FileManager {
         FilmLis.delete();
         PrestitoLis.delete();
         ClienteLis.delete();
-        File newFilmLis=new File(FilmLis.getName());
-        File newPrestitoLis=new File(PrestitoLis.getName());
-        File newClienteLis=new File(ClienteLis.getName());
+        File newFilmLis = new File(FilmLis.getName());
+        File newPrestitoLis = new File(PrestitoLis.getName());
+        File newClienteLis = new File(ClienteLis.getName());
         FilmLis.createNewFile();
         PrestitoLis.createNewFile();
         ClienteLis.createNewFile();
-        PrintWriter SalvaFilm=new PrintWriter(newFilmLis); // Uso il Printwriter per scrivere dati (lista film)
+        PrintWriter SalvaFilm = new PrintWriter(newFilmLis); // Uso il Printwriter per scrivere dati (lista film)
         for(Film FilmLista:vid.getFilm())                 // in un file
         {
             SalvaFilm.println(FilmLista.getDisponibilita());   // Nella fase di scrittura della lista che
             SalvaFilm.println(FilmLista.getTitolo());          // caratterizza il film, vengono trasferiti i seguenti
-            SalvaFilm.println(FilmLista.getCodice());          // dati: Disponibilità del film, titolo, codice ISBN, Nome, Cognome
-            SalvaFilm.println(FilmLista.getRegista().getNome());  // e nazione dell'autore
+            SalvaFilm.println(FilmLista.getCodice());          // dati: Disponibilità del film, titolo, codice ISAN, Nome, Cognome
+            SalvaFilm.println(FilmLista.getRegista().getNome());  // e nazione del regista
             SalvaFilm.println(FilmLista.getRegista().getCognome());
             SalvaFilm.println(FilmLista.getRegista().getNazione());
         }
         SalvaFilm.close();  // Al termine dell'elaborazione del File, chiudiamo l'oggetto Printwriter
 
-        PrintWriter SalvaPrest=new PrintWriter(newPrestitoLis);
+        PrintWriter SalvaPrest = new PrintWriter(newPrestitoLis);
         for(Prestito PrestitoLista:vid.getPrestiti())  // Eseguiamo la stessa operazione per la lista dei prestiti
         {
             SalvaPrest.println(PrestitoLista.getFilm().getTitolo());
@@ -115,7 +115,7 @@ public class FileManager {
      *
      * @param FilmLis  File da cui verranno letti gli oggetti Video dell'oggetto Videoteca
      * @param PrestitoLis  File da cui verranno letti gli oggetti Prestito dell'oggetto Videoteca
-     * @param ClienteLis File da cuui verranno letti gli oggetti Clienti dell'oggetto Videoteca
+     * @param ClienteLis File da cui verranno letti gli oggetti Clienti dell'oggetto Videoteca
      * @throws FileNotFoundException Eccezione riguardante il file nel caso non sia trovato
      * @throws IOException Eccezione a controllo obbligatorio (errore non gestibile dal programmatore)
      * @throws NoSuchElementException Eccezione che si verifica quando la fine del file viene raggiunta prima che sia stato aggiunto almeno un carattere alla parola che si sta costruendo.
@@ -131,7 +131,7 @@ public class FileManager {
         }
         else
         {
-            if(!PrestitoLis.exists())  // Se il file dei libri esiste ma non c'è quello dei prestiti
+            if(!PrestitoLis.exists())  // Se il file dei film esiste ma non c'è quello dei prestiti
             {
                 PrestitoLis.createNewFile();  // Viene creato soltanto quello dei prestiti
             }
@@ -140,14 +140,14 @@ public class FileManager {
                 ClienteLis.createNewFile();  // Viene creato soltanto quello dei clienti
             }
         }
-        Scanner FilmScanner=new Scanner(FilmLis);  // L'oggetto Scanner permette la lettura del testo contenuto in FilmLis in questo caso
-        Scanner PrestitoScanner=new Scanner(PrestitoLis); // Mentre qui la lettura del contenuto in PrestitoLis
-        Scanner ClienteScanner=new Scanner(ClienteLis); // Mentre qui la lettura del contenuto in ClientiLis
+        Scanner FilmScanner = new Scanner(FilmLis);  // L'oggetto Scanner permette la lettura del testo contenuto in FilmLis in questo caso
+        Scanner PrestitoScanner = new Scanner(PrestitoLis); // Mentre qui la lettura del contenuto in PrestitoLis
+        Scanner ClienteScanner = new Scanner(ClienteLis); // Mentre qui la lettura del contenuto in ClientiLis
 
         while(FilmScanner.hasNext())  // Vengono acquisiti dati in ingresso
         {
-            Regista ar=new Regista();
-            Film film1=new Film();
+            Regista ar = new Regista();
+            Film film1 = new Film();
             film1.setDisponibilita(FilmScanner.nextInt());
             FilmScanner.nextLine();
             film1.setTitolo(FilmScanner.nextLine());
@@ -162,12 +162,12 @@ public class FileManager {
         while(PrestitoScanner.hasNext())
         {
             int GiornoPrest,MesePrest,AnnoPrest;
-            Film film1=new Film();
-            Cliente cliente1=new Cliente();
+            Film film1 = new Film();
+            Cliente cliente1 = new Cliente();
             cliente1.Nolegg();
             String lettura;
-            lettura=PrestitoScanner.nextLine();
-            film1=vid.CercaFilmTitolo(lettura);
+            lettura = PrestitoScanner.nextLine();
+            film1 = vid.CercaFilmTitolo(lettura);
             GiornoPrest=PrestitoScanner.nextInt();
             MesePrest=PrestitoScanner.nextInt();
             AnnoPrest=PrestitoScanner.nextInt();
@@ -178,13 +178,13 @@ public class FileManager {
 
             Prestito prestito = new Prestito(film1,cliente1,new Data(GiornoPrest,MesePrest,AnnoPrest));
             vid.getPrestiti().add(prestito);
-            boolean bo=false;
+            boolean bo = false;
             for(Cliente ClienteLista:vid.getClienti())
             {
                 if(cliente1.equals(ClienteLista))
                 {
                     ClienteLista.Nolegg();
-                    bo=true;
+                    bo = true;
                 }
             }
             if(!bo)
@@ -194,8 +194,8 @@ public class FileManager {
 
             while(ClienteScanner.hasNextInt())
             {
-                cliente1=new Cliente();
-                lettura=ClienteScanner.nextLine();
+                cliente1 = new Cliente();
+                lettura = ClienteScanner.nextLine();
                 cliente1.setNome(lettura);
                 cliente1.setCognome(lettura);
                 cliente1.setCodiceFisc(lettura);

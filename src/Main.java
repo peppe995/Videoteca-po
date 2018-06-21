@@ -11,6 +11,19 @@ import javax.swing.*;  // Importa il package swing , ossia le classi per interfa
 
 public class Main {
 //<<<<<<< HEAD//
+<<<<<<< HEAD
+=======
+
+ //public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
+       
+            
+            /*  boolean safe = true;
+		boolean fatto = false;
+		int opt = -1;
+		JTextField InsTesto = new JTextField();   */
+//=======//
+	
+>>>>>>> 413f8c6510ab864e9da39d5cc0dfe43e4e48b911
 	public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
 		
 		boolean safe=true;
@@ -73,8 +86,8 @@ public class Main {
 	}
 
 		/**
-	 * Questa funzione aggiunge un nuovo film alla reria 
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * Questa funzione aggiunge un nuovo film alla videoteca
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 * @throws IOException Eccezione a controllo obbligatorio (errore non gestibile dal programmatore)
 	 */
@@ -141,7 +154,7 @@ public class Main {
 
 	/**
 	 * Questa funziona esegue il prestito
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 */
 
