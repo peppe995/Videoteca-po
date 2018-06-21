@@ -83,8 +83,8 @@ public class Main {
 	}
 
 		/**
-	 * Questa funzione aggiunge un nuovo film alla reria 
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * Questa funzione aggiunge un nuovo film alla videoteca
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 * @throws IOException Eccezione a controllo obbligatorio (errore non gestibile dal programmatore)
 	 */
@@ -151,7 +151,7 @@ public class Main {
 
 	/**
 	 * Questa funziona esegue il prestito
-	 * @param vid Oggetto di tipo Libreria la quale gestisce un elenco di ri, clienti e noleggi
+	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 */
 
