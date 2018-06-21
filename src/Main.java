@@ -11,6 +11,8 @@ import javax.swing.*;  // Importa il package swing , ossia le classi per interfa
 
 public class Main {
 //<<<<<<< HEAD//
+<<<<<<< HEAD
+=======
 
  //public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
        
@@ -21,6 +23,7 @@ public class Main {
 		JTextField InsTesto = new JTextField();   */
 //=======//
 	
+>>>>>>> 413f8c6510ab864e9da39d5cc0dfe43e4e48b911
 	public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
 		
 		boolean safe = true;
