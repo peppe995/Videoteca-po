@@ -11,10 +11,7 @@ import javax.swing.*;  // Importa il package swing , ossia le classi per interfa
 
 public class Main {
 
-
-
-	
-
+    
 	public static void main(String[] args)  throws FileNotFoundException, IOException, NumberFormatException{
 		
 		boolean safe = true;
@@ -56,8 +53,8 @@ public class Main {
 						{
 							case 1: safe = false; AggiungiNuovoFilm(vid);                      break;
 							case 2: safe = false; MostraFilm(vid);                             break;
-							case 3: safe = false; ControlloScad(vid);                           break;
-							case 4: safe = false; Ricerca(vid);                                 break;
+							case 3: safe = false; ControlloScad(vid);                          break;
+							case 4: safe = false; Ricerca(vid);                                break;
 							case 5: fatto = Uscita(safe,film,prestiti,clienti,manager,fatto);  break;
 						}
 					}
@@ -76,7 +73,7 @@ public class Main {
 		while(!fatto);
 	}
 
-		/**
+            /**
 	 * Questa funzione aggiunge un nuovo film alla videoteca
 	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
@@ -267,7 +264,7 @@ public class Main {
 		while(!fatto);
 	}
 	/**
-	 * Questa funzione dà la possibilità di effettuare una ricerca nella videoteca su tre rami:
+	 * Questa funzione consente di effettuare una ricerca nella videoteca su tre rami:
 	 * 1) Ricerca attraverso i film;
 	 * 2) Ricerca attraverso i clienti;
 	 * 3) Ricerca attraverso i noleggi.
@@ -674,7 +671,7 @@ public class Main {
 
 	/**
 	 * Questa funzione ci permette di trovare un film (eventualmente presente nella videoteca) attraverso il titolo del film stesso,
-	 * ci restituisce in output i seguenti dati: nome, cognome, nazionalità del regista, codice ISAN del film con la relativa disponibilità.
+	 * ci restituisce in output i seguenti dati: nome, cognome e nazionalità del regista, codice ISAN del film con la relativa disponibilità.
 	 * @param vid Oggetto di tipo Videoteca la quale gestisce un elenco di film, clienti e noleggi
 	 * @throws NumberFormatException Eccezione riguardante la mancata estrazione di un intero
 	 */
