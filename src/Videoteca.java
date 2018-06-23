@@ -172,11 +172,7 @@ public class Videoteca {
     }
 
     /**
-<<<<<<< HEAD
-     * Viene ricercato nella lista dei film, il film con il titolo ricercato
-=======
      * Viene ricercato nella lista dei film quello con il titolo ricercato
->>>>>>> 4ba83931a1056b51b5ac9e05e81a83c12c78b421
      * @param tf Titolo del film da ricercare
      * @return il film ricercato se già presente, altrimenti ritorna "null".
      */
@@ -196,8 +192,8 @@ public class Videoteca {
 
     /**
      * Ricerca nella lista dei film con il regista passato
-     * @param nome il cognome del regista da cui ricercare i film
-     * @param cognome il nome del film da cui ricercare i film
+     * @param nome il nome del regista da cui ricercare i film
+     * @param cognome il cognome del regista da cui ricercare i film
      * @return una lista dei film con il regista inserito
      */
     public ArrayList<Film> CercaFilmRegista(String nome,String cognome)
@@ -214,7 +210,7 @@ public class Videoteca {
         return FilmLis;
     }
     /**
-     * Ricerca nella lista dei clienti quello con i parametri passati
+     * Ricerca nella lista dei clienti con tali parametri passati:
      * @param NomeC1 nome del cliente da ricercare
      * @param CognomeC1 cognome del cliente da ricercare
      * @param CodicefC1 data di nascita del cliente da ricercare
@@ -234,11 +230,11 @@ public class Videoteca {
     }
 
     /**
-     * Ricerca nella lista dei noleggi quello con i parametri passati
+     * Ricerca nella lista dei noleggi con i parametri passati:
      * @param tf titolo del film da cui ricercare il noleggio
      * @param NomeC1 nome del cliente da cui ricercare il noleggio
      * @param CognomeC1 cognome del cliente da cui ricercare il noleggio
-     * @param CodicefC1 data di nascita del cliente da cui ricercare il noleggio
+     * @param CodicefC1 codice fiscale del cliente da cui ricercare il noleggio
      * @return il noleggio ricercato se è presente, altrimenti ritorna "null"
      */
     public Prestito RicercaPrestito(String tf,String NomeC1,String CognomeC1,String CodicefC1)
@@ -256,7 +252,7 @@ public class Videoteca {
     }
 
     /**
-     * Ricerca nella lista dei noleggi quelli del film il cui titolo è passato per parametro
+     * Ricerca nella lista dei noleggi i film il cui titolo è passato per parametro
      * @param titolo titolo del film da cui ricercare i noleggi
      * @return i noleggi ricercati presenti
      */

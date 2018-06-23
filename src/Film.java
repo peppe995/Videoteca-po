@@ -64,7 +64,7 @@ public class Film implements Comparable{
 
     public Film(String tf, Regista rf, String cf, int df)
     {
-        regista = new Regista(rf.getNome(), regista.getCognome(), regista.getNazione());
+        regista = new Regista(regista.getNome(), regista.getCognome(), regista.getNazione());
         titolo = tf;
         codice = cf;
         setDisponibilita(df);
@@ -173,7 +173,7 @@ public class Film implements Comparable{
     {
         codice = cf;
     }
-
+                        /** Metodi Utili */
     /**
      * Restituisce una stringa contenente tutte le informazioni sul film
      * @return La stringa ordinata è una composizione di titolo, regista ed codice ISAN
@@ -225,12 +225,7 @@ public class Film implements Comparable{
     }
 
 
-
-
-
-
-
-    /**
+   /**
      * Effettua un confronto  in base al titolo dei film confrontati
      * e rende possibile stabilire se un film va collocato prima o dopo in un riordinamento
      * @param other rappresenta il secondo elemento del paragone
@@ -243,3 +238,8 @@ public class Film implements Comparable{
         return titolo.compareToIgnoreCase(f.getTitolo());
     }
 }
+
+
+
+
+ 

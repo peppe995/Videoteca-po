@@ -92,7 +92,7 @@ public class Cliente extends Persona{
         codicef = CodicefC;
     }
 
-
+                      /** Metodi Utili */
     /**
      * Aumenta di 1 il numero di noleggi del cliente
      */

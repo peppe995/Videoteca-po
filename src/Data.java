@@ -71,7 +71,7 @@ public class Data {
         setMese(m);
         setGiorno(g);
     }
-
+                        /** Metodi Get */
     /**
      * Restituisce il giorno
      * @return Il giorno

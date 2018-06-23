@@ -26,7 +26,8 @@ public class FileManager {
      *
      * @param videoteca La Videoteca sulla quale l'oggetto opererà
      */
-
+                        /** Costruttore */
+    
     public FileManager(Videoteca videoteca)
     {
         vid = videoteca;

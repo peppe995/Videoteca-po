@@ -31,7 +31,7 @@ public class Prestito {
      */
     private Data scadenza;
 
-    /** Costruttori */
+                           /** Costruttori */
     /**
      * Il costruttore di default inizializza un noleggio chiamando i costruttori
      * di default delle classi film, cliente e data, per poi impostare la scadenza di
@@ -147,7 +147,7 @@ public class Prestito {
     /**
      * Permette di controllare se un dato noleggio scadrà prima o dopo rispetto
      * ad un altro, rendendo possibile anche un riordinamento; restituisce un intero
-     * che simboleggia lo stato di un oggetto noleggio rispetto ad un altro nel confronto
+     * che simboleggia lo stato di un oggetto noleggio rispetto ad un altro nel confronto.
      * @param other descrive l'altro noleggio da confrontare
      * @return un intero che simboleggia quale dei due noleggi è antecedente all'altro
      */
