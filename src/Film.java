@@ -64,26 +64,10 @@ public class Film implements Comparable{
 
     public Film(String tf, Regista rf, String cf, int df)
     {
-        regista = new Regista(rf.getNome(), regista.getCognome(), regista.getNazione());
-        titolo = tf;
-        codice = cf;
-        setDisponibilita(df);
-    }
-
-    /**
-     * Il costruttore inizializza un film con disponibilità unica attraverso
-     * il passaggio dei parametri titolo, regista e codice ISAN
-     * @param tf descrive il titolo del film
-     * @param rf descrive l'regista del film
-     * @param cf descrive il codice ISAN del film
-     */
-
-    public Film(String tf, Regista rf, String cf)
-    {
         regista = new Regista(rf.getNome(), rf.getCognome(), rf.getNazione());
         titolo = tf;
         codice = cf;
-        disponibilita = 1;
+        setDisponibilita(df);
     }
 
                     /** Metodi Get */
@@ -178,7 +162,8 @@ public class Film implements Comparable{
      * Restituisce una stringa contenente tutte le informazioni sul film
      * @return La stringa ordinata è una composizione di titolo, regista ed codice ISAN
      */
-
+    
+                             /** Metodi Utili */
     public String toString()
     {
         return titolo+" "+regista+" "+codice+" ";
@@ -223,11 +208,6 @@ public class Film implements Comparable{
             return false;
         }
     }
-
-
-
-
-
 
 
     /**

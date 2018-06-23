@@ -82,7 +82,7 @@ public class Regista extends Persona {
      * @return una variabile booleana che simboleggia lo stato di uguaglianza o meno tra due registi
      */
 
-    public Boolean equals(Regista r)
+    public boolean equals(Regista r)
     {
 
         if(this.nome.equalsIgnoreCase(r.getNome()) && this.cognome.equalsIgnoreCase(r.getCognome())
