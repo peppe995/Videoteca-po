@@ -70,7 +70,7 @@ public class Regista extends Persona {
      * chiamando il toString della superclasse Persona, e nazionalità
      * in una stringa ordinata
      */
-
+                      /** Metodi Utili */
     public String toString()
     {
         return super.toString()+" \n"+nazione;
