@@ -344,7 +344,7 @@ public class Main {
 		int opzione;
 		Data data3 = DataOdierna();
 		ArrayList<Prestito> scaduto = new ArrayList<Prestito>();
-		//Collections.sort(vid.getPrestiti());
+		Collections.sort(vid.getPrestiti());
 		for(Prestito PrestitoLista:vid.getPrestiti())
 		{
 			Data data4 = PrestitoLista.getScadenza();

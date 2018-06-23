@@ -9,7 +9,7 @@ import java.lang.Comparable;
  * @author Mambella Alessandra
  * @author Sichetti Dylan
  */
-public class Prestito {
+public class Prestito implements Comparable{
 
     /**
      * Le informazioni sul film

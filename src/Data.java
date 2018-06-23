@@ -11,7 +11,7 @@ import java.lang.Comparable;
  * L'utilizzo dell'interfaccia Comparable permette un confronto in
  * ordine di precedenza tra due istanze di tipo Data
  */
-public class Data {
+public class Data implements Comparable {
 
     /**
      * Il giorno della data
