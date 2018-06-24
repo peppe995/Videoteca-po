@@ -298,7 +298,7 @@ public class Main {
 	{
 		Calendar data = null;
 		data=Calendar.getInstance();
-		Data dataodierna = new Data(data.get(Calendar.DATE),data.get(Calendar.MONTH),data.get(Calendar.YEAR));
+		Data dataodierna = new Data(data.get(Calendar.DATE),data.get(Calendar.MONTH)+1,data.get(Calendar.YEAR));
 		return dataodierna;
 	}
 
