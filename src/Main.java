@@ -2,7 +2,7 @@
 import java.io.File; // Pacchetto che consente la creazione di un file
 import java.io.FileNotFoundException; // Eccezione riguardante il file nel caso non sia trovato
 import java.io.IOException; // Eccezione a controllo obbligatorio (errore non gestibile dal programmatore)
-import java.lang.IndexOutOfBoundsException; // Eccezione a "controllo npn obbligatorio" (errore programmatore)
+import java.lang.IndexOutOfBoundsException; // Eccezione a "controllo non obbligatorio" (errore programmatore)
 import java.lang.NumberFormatException;  // Eccezione riguardante la mancata estrazione di un intero
 import java.util.Collections; // Pacchetto che offre dei metodi (statici) applicabili su diversi contenitori 
 import java.util.ArrayList; // Pacchetto che richiama le classi che consentono di memorizzare raccolte di oggetti
@@ -16,14 +16,16 @@ public class Main {
 		
 		boolean safe = true;
 		boolean fatto = false;
-		int opt = -1;
+		int opt;
 		JTextField InsTesto = new JTextField();
 
-		Object[] scelta = {"Cosa si desidera fare (digitare il numero corrispondente)?"
+		Object[] scelta = {"Cosa si desidera fare? (digitare il numero corrispondente)"
 				+ "\n\n1) Aggiungere un film al database"
 				+ "\n\n2) Mostrare i film disponibili"
-				+ "\n\n3) Mostrare i noleggi scaduti\n\n4) Cercare un film, cliente o noleggio"
-				+ "\n\n5) Uscire","\n",InsTesto};
+				+ "\n\n3) Mostrare i noleggi scaduti"
+				+ "\n\n4) Cercare un film, cliente o noleggio"
+				+ "\n\n5) Uscire","\n",
+				InsTesto};
 		File film = new File("film.txt");
 		File prestiti = new File("prestiti.txt");
 		File clienti = new File("clienti.txt");
@@ -34,15 +36,14 @@ public class Main {
 		{
 			try
 			{
-				UIManager.put("OptionPane.cancelButtonText", "Esci");
+				UIManager.put("OptionPane.cancelButtonText" , "Esci");
 				UIManager.put("OptionPane.okButtonText", "OK");
 				InsTesto.setText("");
-				int option = JOptionPane.showConfirmDialog(null, scelta, "Menù",
-						JOptionPane.OK_CANCEL_OPTION);
+				int option = JOptionPane.showConfirmDialog(null, scelta, "Menù", JOptionPane.OK_CANCEL_OPTION);
 				if(option==JOptionPane.OK_OPTION)
 				{
 					opt=Integer.parseInt(InsTesto.getText());
-					if(opt<0 || opt>7)
+					if(opt<1 || opt>5)
 					{
 						JOptionPane.showMessageDialog(null,"Numero Immesso non valido."
 								+ " Riprovare:");

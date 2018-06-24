@@ -147,16 +147,16 @@ public class FileManager {
 
         while(FilmScanner.hasNext())  // Vengono acquisiti dati in ingresso
         {
-            Regista ar = new Regista();
+            Regista rf = new Regista();
             Film film1 = new Film();
             film1.setDisponibilita(FilmScanner.nextInt());
             FilmScanner.nextLine();
             film1.setTitolo(FilmScanner.nextLine());
             film1.setCodice(FilmScanner.nextLine());
-            ar.setNome(FilmScanner.nextLine());
-            ar.setCognome(FilmScanner.nextLine());
-            ar.setNazione(FilmScanner.nextLine());
-            film1.setRegista(ar);
+            rf.setNome(FilmScanner.nextLine());
+            rf.setCognome(FilmScanner.nextLine());
+            rf.setNazione(FilmScanner.nextLine());
+            film1.setRegista(rf);
             vid.AggiungiFilm(film1);
         }
 
