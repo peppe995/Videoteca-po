@@ -185,7 +185,7 @@ public class Main {
 						}
 						else
 						{
-							JOptionPane.showMessageDialog(null,"Il cliente ha 5 "
+							JOptionPane.showMessageDialog(null,"Il cliente ha 4 "
 									+ "noleggi e/o il film non è disponibile!");
 						}
 					}
@@ -275,16 +275,16 @@ public class Main {
 
 	public static void Ricerca(Videoteca vid) throws NumberFormatException
 	{
-		String[] opzioni = new String[] {"Film", "Clienti", "Noleggi", "Torna al Menù"};
-		int choice = JOptionPane.showOptionDialog(null, "Cosa si desidera ricercare?\n\nFilm, Clienti"
+		String[] opzioni = new String[] {"Torna al Menù", "Clienti", "Film", "Noleggi", };
+		int choice = JOptionPane.showOptionDialog(null, "Cosa si desidera ricercare: Film, Clienti"
 						+ " o Noleggi?", "Ricerca...",
 				JOptionPane.DEFAULT_OPTION,JOptionPane.PLAIN_MESSAGE, null, opzioni, opzioni[0]);
 		switch(choice)
 		{
-			case 0: RicercaFilm(vid); break;
+			case 0: break;
 			case 1: RicercaClienti(vid); break;
-			case 2: RicercaPerPrestiti(vid); break;
-			case 3: break;
+			case 2: RicercaFilm(vid); break;
+			case 3: RicercaPerPrestiti(vid); break;
 		}
 
 	}
@@ -358,7 +358,7 @@ public class Main {
 
 		if(scaduto.isEmpty())
 		{
-			JOptionPane.showMessageDialog(null,"Non ci sono noleggi scaduti in memoria!");
+			JOptionPane.showMessageDialog(null,"Non ci sono noleggi scaduti!");
 		}
 		else
 		{
@@ -631,16 +631,14 @@ public class Main {
 					else
 					{
 						int i = 1;
-						int width = 40;
-						int pad = 0;
+						int max=10;
 						String s = prestiti.get(0).getFilm().getTitolo()+
 								" è noleggiato dai seguenti clienti: \n";
 						String s1,s2;
 						for(Prestito PrestitoLista:prestiti)
 						{
 							s1 = PrestitoLista.getCliente().getNome()+" "+PrestitoLista.getCliente().getCognome()+" \nCodice Fiscale: "+PrestitoLista.getCliente().getCodiceFisc();
-							pad = width-s1.length()-(1)/(i+2);
-							for(int j=0; j<pad; j++)
+							for(int j=0; j<max; j++)
 							{
 								s1 = s1+" ";
 							}
@@ -719,7 +717,7 @@ public class Main {
 							Prestito(vid);
 						}
 						break;
-					case JOptionPane.NO_OPTION:      film1.setDisponibilita(0);          break;
+					case JOptionPane.NO_OPTION:      film1.setDisponibilita(0);  break;
 					case JOptionPane.CANCEL_OPTION:                              break;
 				}
 
@@ -757,7 +755,7 @@ public class Main {
 			if(filmAtt.isEmpty())
 			{
 				JOptionPane.showMessageDialog(null,"Non ci sono film appartenenti a "
-						+ "tali regisiti!");
+						+ "tale regisita!");
 			}
 			else
 			{
@@ -817,8 +815,6 @@ public class Main {
 			UIManager.put("OptionPane.cancelButtonText", "Torna al Menù");
 			int scelta = JOptionPane.showConfirmDialog(null, "Uscire senza salvare?", "Uscita",
 					JOptionPane.YES_NO_CANCEL_OPTION);
-			UIManager.put("OptionPane.okButtonText", "OK");
-
 			switch(scelta)
 			{
 				case JOptionPane.YES_OPTION:    fatto = true; safe = true;                                break;
