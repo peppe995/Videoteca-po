@@ -112,7 +112,7 @@ public class Videoteca {
      * Aggiunge un noleggio alla lista controllando se ciò è possibile.
      * La "possibilità" di questa azione è data da:
      * 1) Un controllo sui noleggi correnti del cliente (Cliente), nel caso ne abbia 
-     *    all'attivo un numero maggiore o uguale a 5 non verrà aggiunto il noleggio
+     *    all'attivo un numero maggiore o uguale a 4 non verrà aggiunto il noleggio
      * 2) Un controllo sulla disponibilità del film (Film), se la disponibilità è minore o uguale a 0
      *    non verrà aggiunto il noleggio.
      * Inoltre diminuisce di 1 la disponibilità del film e aumenta i noleggi all'attivo del cliente di 1
