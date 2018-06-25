@@ -151,7 +151,7 @@ public class Data implements Comparable {
 
     public void setAnno(int a)
     {
-        if( a <= 0)
+        if( a <= 2000)
         {
             anno = MinAnno;
             bis = true;

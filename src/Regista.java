@@ -64,13 +64,14 @@ public class Regista extends Persona {
     {
         nazione = NazioneR;
     }
-
+   
+                      /** Metodi Utili */
     /**
      * Converte in una stringa il regista, restituisce nome, cognome
      * chiamando il toString della superclasse Persona, e nazionalità
      * in una stringa ordinata
      */
-                      /** Metodi Utili */
+
     public String toString()
     {
         return super.toString()+" \n"+nazione;
