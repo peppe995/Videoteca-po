@@ -26,7 +26,7 @@ public class Videoteca {
      */
 
     private ArrayList<Prestito> prestiti = new ArrayList<Prestito>();
-    private static final int MaxPrestiti = 5;
+    private static final int MaxPrestiti = 4;
     private static final int LimiteMin = 0;
 
 
