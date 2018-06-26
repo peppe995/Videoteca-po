@@ -1,4 +1,4 @@
-4
+3
 A beautiful mind
 4467
 Ron
@@ -10,7 +10,7 @@ I cento passi
 Marco Tullio
 Giordana
 Italia
-5
+4
 Léon
 1215
 Luc
@@ -22,13 +22,13 @@ Mad Max: Fury Road
 George
 Miller
 Austriala
-4
+3
 Prendi i soldi e scappa
 5566
 Woody
 Allen
 Stati Uniti
-3
+2
 Un borghese piccolo piccolo
 3578
 Mario
